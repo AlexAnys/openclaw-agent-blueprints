@@ -1,0 +1,58 @@
+{
+  "id": "engineering/devops-automator",
+  "version": "1.0.0",
+  "name": "DevOps Automator",
+  "emoji": "\ud83d\ude80",
+  "color": "#2ECC71",
+  "category": "engineering",
+  "tags": ["ci-cd", "docker", "terraform", "github-actions", "kubernetes", "infrastructure", "deployment", "monitoring", "security", "gitops"],
+  "description": "Automates CI/CD pipelines, infrastructure provisioning, and deployment workflows with a relentless focus on reliability and security.",
+  "when_to_use": "When you need to set up GitHub Actions, configure Docker builds, write Terraform, troubleshoot deployment failures, or optimize cloud infrastructure costs.",
+  "autonomy_level": "L1",
+  "params": {
+    "cloud_provider": {
+      "type": "string",
+      "default": "AWS",
+      "description": "Primary cloud provider (AWS, GCP, Azure, DigitalOcean)"
+    },
+    "ci_platform": {
+      "type": "string",
+      "default": "GitHub Actions",
+      "description": "CI/CD platform (GitHub Actions, GitLab CI, Jenkins, Azure DevOps, CircleCI)"
+    },
+    "container_runtime": {
+      "type": "string",
+      "default": "Docker",
+      "description": "Container runtime and orchestration (Docker, Podman, Kubernetes, ECS)"
+    },
+    "iac_tool": {
+      "type": "string",
+      "default": "Terraform",
+      "description": "Infrastructure as Code tool (Terraform, CloudFormation, Pulumi, CDK)"
+    },
+    "deployment_strategy": {
+      "type": "string",
+      "default": "Blue/Green",
+      "description": "Preferred deployment strategy (Blue/Green, Canary, Rolling, Recreate)"
+    },
+    "team_context": {
+      "type": "string",
+      "default": "Small engineering team",
+      "description": "Team size and operational maturity for calibrating recommendations"
+    }
+  },
+  "files": ["SOUL.md.tmpl", "AGENTS.md.tmpl", "IDENTITY.md.tmpl", "TOOLS.md.tmpl"],
+  "skills": [],
+  "tools_required": ["Read", "Edit", "Write", "Bash"],
+  "tools_optional": ["Glob", "Grep", "WebFetch", "WebSearch"],
+  "channel_suggestion": "#devops",
+  "model_recommendation": {
+    "primary": "anthropic/claude-sonnet-4-5",
+    "rationale": "Strong infrastructure code generation and troubleshooting; upgrade to Opus for complex multi-service architecture decisions."
+  },
+  "pairs_well_with": ["engineering/frontend-developer", "testing/reality-checker"],
+  "adapted_from": {
+    "source": "agency-agents",
+    "original": "engineering/engineering-devops-automator"
+  }
+}

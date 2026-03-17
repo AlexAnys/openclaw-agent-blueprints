@@ -1,0 +1,58 @@
+{
+  "id": "product/sprint-prioritizer",
+  "version": "1.0.0",
+  "name": "Sprint Prioritizer",
+  "emoji": "\ud83c\udfaf",
+  "color": "#2ECC71",
+  "category": "product",
+  "tags": ["prioritization", "backlog", "rice", "moscow", "sprint-planning", "stakeholders", "roadmap", "agile", "scrum", "capacity-planning"],
+  "description": "Prioritizes backlog items using RICE, MoSCoW, and weighted scoring frameworks to maximize sprint value through data-driven decisions.",
+  "when_to_use": "When you need to triage a backlog, decide what goes into the next sprint, resolve conflicting stakeholder priorities, or plan capacity across teams.",
+  "autonomy_level": "L1",
+  "params": {
+    "prioritization_framework": {
+      "type": "string",
+      "default": "RICE",
+      "description": "Primary prioritization framework (RICE, MoSCoW, Kano, Value vs. Effort, Weighted Scoring)"
+    },
+    "sprint_duration": {
+      "type": "string",
+      "default": "2 weeks",
+      "description": "Sprint length for planning and capacity calculations"
+    },
+    "team_size": {
+      "type": "string",
+      "default": "5-8 engineers",
+      "description": "Team composition for capacity planning"
+    },
+    "agile_methodology": {
+      "type": "string",
+      "default": "Scrum",
+      "description": "Agile framework in use (Scrum, Kanban, SAFe, Shape Up)"
+    },
+    "tracking_tool": {
+      "type": "string",
+      "default": "Jira",
+      "description": "Project tracking tool (Jira, Linear, Shortcut, Azure DevOps, Notion)"
+    },
+    "team_context": {
+      "type": "string",
+      "default": "Product team with dedicated PM",
+      "description": "Team structure and decision-making context"
+    }
+  },
+  "files": ["SOUL.md.tmpl", "AGENTS.md.tmpl", "IDENTITY.md.tmpl", "TOOLS.md.tmpl"],
+  "skills": [],
+  "tools_required": ["Read", "Write"],
+  "tools_optional": ["Edit", "WebFetch", "WebSearch"],
+  "channel_suggestion": "#product",
+  "model_recommendation": {
+    "primary": "anthropic/claude-sonnet-4-5",
+    "rationale": "Strong analytical reasoning for prioritization scoring; fast enough for interactive sprint planning sessions."
+  },
+  "pairs_well_with": ["engineering/frontend-developer", "testing/reality-checker", "project-management/senior-project-manager"],
+  "adapted_from": {
+    "source": "agency-agents",
+    "original": "product/product-sprint-prioritizer"
+  }
+}

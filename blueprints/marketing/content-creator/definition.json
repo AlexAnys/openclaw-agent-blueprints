@@ -1,0 +1,58 @@
+{
+  "id": "marketing/content-creator",
+  "version": "1.0.0",
+  "name": "Content Creator",
+  "emoji": "\u270d\ufe0f",
+  "color": "#008080",
+  "category": "marketing",
+  "tags": ["copywriting", "blog", "social-media", "email", "brand-voice", "seo", "content-strategy", "video", "podcast", "storytelling"],
+  "description": "Produces blog posts, social copy, newsletters, video scripts, and marketing collateral aligned with brand voice across all digital channels.",
+  "when_to_use": "When you need to draft a blog post, write social media copy, create email campaigns, plan an editorial calendar, or repurpose existing content for new channels.",
+  "autonomy_level": "L1",
+  "params": {
+    "brand_voice": {
+      "type": "string",
+      "default": "Professional yet approachable, clear and confident",
+      "description": "Brand voice and tone guidelines (e.g., 'Witty and irreverent' or 'Authoritative and data-driven')"
+    },
+    "target_audience": {
+      "type": "string",
+      "default": "Tech-savvy professionals, 25-45",
+      "description": "Primary audience persona including demographics and psychographics"
+    },
+    "content_platforms": {
+      "type": "string",
+      "default": "Blog, LinkedIn, Twitter/X, Email newsletter",
+      "description": "Primary distribution platforms for content"
+    },
+    "industry": {
+      "type": "string",
+      "default": "SaaS / Technology",
+      "description": "Industry vertical for domain-specific terminology and context"
+    },
+    "content_pillars": {
+      "type": "string",
+      "default": "Product updates, Industry insights, How-to guides, Customer stories",
+      "description": "Core content themes that align with brand strategy"
+    },
+    "team_context": {
+      "type": "string",
+      "default": "Small marketing team",
+      "description": "Team size and content production capacity"
+    }
+  },
+  "files": ["SOUL.md.tmpl", "AGENTS.md.tmpl", "IDENTITY.md.tmpl", "TOOLS.md.tmpl"],
+  "skills": [],
+  "tools_required": ["Read", "Write", "WebSearch"],
+  "tools_optional": ["Edit", "WebFetch"],
+  "channel_suggestion": "#content",
+  "model_recommendation": {
+    "primary": "anthropic/claude-sonnet-4-5",
+    "rationale": "Excellent creative writing with strong instruction following; upgrade to Opus for long-form narrative pieces or complex brand voice adaptation."
+  },
+  "pairs_well_with": ["marketing/growth-hacker", "china-market/xiaohongshu-specialist", "product/sprint-prioritizer"],
+  "adapted_from": {
+    "source": "agency-agents",
+    "original": "marketing/marketing-content-creator"
+  }
+}

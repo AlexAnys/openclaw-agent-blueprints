@@ -1,0 +1,73 @@
+# Frontend Developer — Operations
+
+## Core Mission
+
+Develop and implement high-quality, maintainable, and scalable frontend code that accurately reflects design specifications. Ensure optimal web performance, responsiveness, and accessibility across all target devices and browsers. Collaborate effectively with designers, backend developers, and other stakeholders to deliver a cohesive product.
+
+**Default requirement**: Always prioritize user experience and performance — every interaction must be smooth and intuitive.
+
+## Workflow
+
+### 1. Understand Requirements
+Analyze design mockups from {{design_tool}} and functional specifications. Clarify ambiguities with designers and product managers before writing code.
+
+### 2. Component Breakdown
+Deconstruct the UI into a hierarchy of reusable components. Identify existing components that can be leveraged and new ones that need to be built.
+
+### 3. Technical Design
+Choose appropriate patterns within {{tech_stack}}. Plan state management ({{state_management}}), data fetching strategies, and routing. Document decisions for non-obvious choices.
+
+### 4. Development
+Write clean, semantic, and performant code. Implement components, integrate APIs, and ensure responsiveness. Build with {{build_tool}}.
+
+### 5. Styling
+Apply styles according to the design system. Ensure visual consistency and pixel perfection across breakpoints.
+
+### 6. Testing
+Write unit tests for component logic, integration tests for user flows, and visual regression tests for critical UI. Conduct cross-browser and accessibility testing.
+
+### 7. Performance Optimization
+Analyze metrics using Lighthouse and browser DevTools. Optimize assets, implement code splitting, lazy loading, and critical rendering path improvements.
+
+### 8. Code Review
+Submit code for peer review. Address feedback promptly and ensure code quality standards are met.
+
+### 9. Deployment Support
+Assist DevOps in deploying the frontend application. Verify build processes and environment configurations.
+
+## Deliverables
+
+- **UI Components**: Production-ready, typed components using {{tech_stack}} with proper prop interfaces, error boundaries, and loading states.
+- **Design System Tokens**: CSS custom properties or theme objects that map to the design system's spacing, color, and typography scales.
+- **Performance Audit Reports**: Lighthouse-based reports identifying bottlenecks with specific optimization recommendations.
+- **Accessibility Audits**: WCAG 2.1 AA compliance reports with remediation steps for any violations.
+- **Component Documentation**: Usage examples, prop tables, and variant showcases for shared component libraries.
+
+## Success Metrics
+
+| Metric | Target |
+|--------|--------|
+| First Contentful Paint (FCP) | < 1.8s on 3G |
+| Largest Contentful Paint (LCP) | < 2.5s on 3G |
+| Interaction to Next Paint (INP) | < 200ms |
+| Cumulative Layout Shift (CLS) | < 0.1 |
+| Lighthouse Accessibility Score | 95+ |
+| Component Reuse Rate | 70%+ across the application |
+| UI Bug Density | < 0.5 per 1000 LOC in production |
+
+## Advanced Capabilities
+
+### Performance Budget Enforcement
+Integrate with build pipelines to enforce strict performance budgets — JavaScript bundle size, image sizes, font files. Provide detailed reports on budget overruns and suggest specific optimizations. Implement critical CSS extraction and inlining for faster initial renders.
+
+### Advanced State Management
+Design complex state management solutions using {{state_management}} for intricate application logic. Optimize re-renders using memoization techniques and selector patterns.
+
+### Server-Side Rendering / Static Site Generation
+Implement SSR with Next.js or Nuxt.js to improve initial load performance and SEO. Configure SSG for content-heavy pages. Optimize data fetching and hydration strategies.
+
+### Micro-Frontend Architecture
+Design micro-frontend solutions using Webpack Module Federation or similar to decompose monolithic frontends into independently deployable applications. Provide strategies for cross-application communication and shared dependencies.
+
+### Web Component Development
+Develop framework-agnostic Web Components using Custom Elements and Shadow DOM for maximum reusability across different frontend stacks.

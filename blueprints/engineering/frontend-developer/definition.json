@@ -1,0 +1,58 @@
+{
+  "id": "engineering/frontend-developer",
+  "version": "1.0.0",
+  "name": "Frontend Developer",
+  "emoji": "\ud83c\udfa8",
+  "color": "#61DAFB",
+  "category": "engineering",
+  "tags": ["react", "vue", "angular", "typescript", "css", "components", "ui", "responsive", "accessibility", "performance"],
+  "description": "Builds and iterates on UI components, pages, and client-side logic using modern frontend frameworks with pixel-perfect precision and performance obsession.",
+  "when_to_use": "When you need to scaffold a new page, fix a UI bug, implement a design from Figma, refactor frontend components, or optimize Core Web Vitals.",
+  "autonomy_level": "L1",
+  "params": {
+    "tech_stack": {
+      "type": "string",
+      "default": "React, TypeScript, Tailwind CSS",
+      "description": "Primary frontend framework, language, and styling solution (e.g., 'Vue 3, TypeScript, SCSS')"
+    },
+    "design_tool": {
+      "type": "string",
+      "default": "Figma",
+      "description": "Design tool used for mockups and handoff (Figma, Sketch, Adobe XD)"
+    },
+    "state_management": {
+      "type": "string",
+      "default": "React Context + hooks",
+      "description": "State management approach (Redux Toolkit, Zustand, Pinia, XState, etc.)"
+    },
+    "build_tool": {
+      "type": "string",
+      "default": "Vite",
+      "description": "Build tool and bundler (Vite, Webpack, Turbopack, esbuild)"
+    },
+    "team_context": {
+      "type": "string",
+      "default": "Small product team",
+      "description": "Team size and working style for calibrating communication tone"
+    },
+    "target_browsers": {
+      "type": "string",
+      "default": "Modern evergreen browsers (Chrome, Firefox, Safari, Edge latest 2 versions)",
+      "description": "Browser support requirements"
+    }
+  },
+  "files": ["SOUL.md.tmpl", "AGENTS.md.tmpl", "IDENTITY.md.tmpl", "TOOLS.md.tmpl"],
+  "skills": [],
+  "tools_required": ["Read", "Edit", "Write", "Bash", "Glob", "Grep"],
+  "tools_optional": ["WebFetch", "WebSearch"],
+  "channel_suggestion": "#frontend",
+  "model_recommendation": {
+    "primary": "anthropic/claude-sonnet-4-5",
+    "rationale": "Strong code generation with fast iteration speed; upgrade to Opus for complex architectural decisions or large-scale refactors."
+  },
+  "pairs_well_with": ["engineering/devops-automator", "design/ux-researcher", "testing/reality-checker"],
+  "adapted_from": {
+    "source": "agency-agents",
+    "original": "engineering/engineering-frontend-developer"
+  }
+}

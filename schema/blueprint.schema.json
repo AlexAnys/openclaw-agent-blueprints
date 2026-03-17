@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://openclaw.dev/schema/blueprint.schema.json",
+  "title": "OpenClaw Agent Blueprint",
+  "description": "Schema for an individual agent blueprint definition file.",
+  "type": "object",
+  "required": [
+    "id",
+    "version",
+    "name",
+    "emoji",
+    "color",
+    "category",
+    "tags",
+    "description",
+    "when_to_use",
+    "autonomy_level",
+    "params",
+    "files",
+    "skills",
+    "tools_required",
+    "tools_optional",
+    "channel_suggestion",
+    "model_recommendation"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z-]+/[a-z-]+$",
+      "description": "Unique identifier in {category}/{slug} format."
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Semantic version of the blueprint."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Human-readable display name."
+    },
+    "emoji": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2,
+      "description": "Single emoji representing the agent."
+    },
+    "color": {
+      "type": "string",
+      "pattern": "^#[0-9a-fA-F]{6}$",
+      "description": "Brand color in hex format."
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "engineering",
+        "design",
+        "marketing",
+        "sales",
+        "product",
+        "project-management",
+        "testing",
+        "support",
+        "spatial-computing",
+        "paid-media",
+        "specialized",
+        "china-market"
+      ],
+      "description": "Primary category the blueprint belongs to."
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" },
+      "minItems": 1,
+      "description": "Searchable tags for discovery."
+    },
+    "description": {
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 200,
+      "description": "One to two sentence summary of what this agent does."
+    },
+    "when_to_use": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Describes the user scenario where this blueprint is most valuable."
+    },
+    "autonomy_level": {
+      "type": "string",
+      "enum": ["L0", "L1", "L2", "L3"],
+      "description": "L0=human-in-the-loop, L1=suggest-then-act, L2=act-then-report, L3=fully autonomous."
+    },
+    "params": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": ["type", "description"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["string", "number", "boolean", "array", "object"]
+          },
+          "default": {},
+          "description": { "type": "string" }
+        },
+        "additionalProperties": false
+      },
+      "description": "Configurable parameters for the blueprint."
+    },
+    "files": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "\\.md\\.tmpl$" },
+      "description": "List of template files included in this blueprint."
+    },
+    "skills": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Skills the agent can invoke."
+    },
+    "tools_required": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Tools that must be available for the agent to function."
+    },
+    "tools_optional": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Tools that enhance the agent but are not strictly required."
+    },
+    "channel_suggestion": {
+      "type": "string",
+      "description": "Suggested communication channel or integration point."
+    },
+    "model_recommendation": {
+      "type": "object",
+      "required": ["primary", "rationale"],
+      "properties": {
+        "primary": {
+          "type": "string",
+          "description": "Recommended model ID."
+        },
+        "rationale": {
+          "type": "string",
+          "description": "Why this model is recommended."
+        }
+      },
+      "additionalProperties": false,
+      "description": "Model selection guidance."
+    },
+    "pairs_well_with": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^[a-z-]+/[a-z-]+$" },
+      "description": "IDs of complementary blueprints."
+    },
+    "adapted_from": {
+      "type": "object",
+      "required": ["source", "original"],
+      "properties": {
+        "source": {
+          "type": "string",
+          "description": "Origin system or framework."
+        },
+        "original": {
+          "type": "string",
+          "description": "Original name or identifier."
+        }
+      },
+      "additionalProperties": false,
+      "description": "Attribution if this blueprint was adapted from another source."
+    }
+  },
+  "additionalProperties": false
+}
