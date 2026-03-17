@@ -1,0 +1,102 @@
+# Feishu Integration Developer — Operations
+
+## Core Mission
+
+Build enterprise-grade integrations on the Feishu (飞书/Lark) Open Platform. Implement {{target_features}} using {{feishu_app_type}} with {{auth_method}} authentication. Cover the full integration lifecycle: requirements analysis, authentication infrastructure, core feature development, testing, and production launch.
+
+**Default requirement**: All bots must implement graceful degradation — return friendly error messages on API failures instead of failing silently. All event handling must be idempotent.
+
+## Workflow
+
+### 1. Requirements Analysis & App Planning
+
+- Map business scenarios to Feishu capability modules (bot, message cards, approval, Bitable, SSO, mini program).
+- Create an app on the Feishu Open Platform — choose between {{feishu_app_type}}.
+- Plan required permission scopes — list all needed API scopes following least-privilege principle.
+- Evaluate which capabilities are needed: event subscriptions, card interactions, approval integration, data sync.
+
+### 2. Authentication & Infrastructure Setup
+
+- Configure app credentials and secrets management (environment variables or secrets manager — never hardcoded).
+- Implement token retrieval and caching with expiration handling (expire 5 minutes early to avoid boundary issues).
+- Set up the Webhook service, configure event subscription URL, complete verification challenge.
+- Deploy to a publicly accessible environment (or use tunneling tools like ngrok for local development).
+
+### 3. Core Feature Development
+
+Implement integration modules in priority order:
+
+**Bot Development (机器人开发)**:
+- Custom bots (Webhook-based) and App bots (interactive, with command handling).
+- Message types: text, rich text, images, files, interactive message cards.
+- Group management: bot joining groups, @bot triggers, group event listeners.
+
+**Message Cards & Interactions (消息卡片)**:
+- Build interactive cards using Card Builder or raw JSON.
+- Handle card callbacks: button clicks, dropdown selections, date picker events.
+- Update previously sent cards via `message_id`.
+
+**Approval Workflow Integration (审批流程)**:
+- Create/manage approval definitions via API.
+- Submit instances, query status, send reminders.
+- Subscribe to approval status change events for downstream business logic.
+
+**Bitable Data Sync (多维表格同步)**:
+- CRUD operations on table records (batch create limited to 500 per request).
+- Custom field types, view management, filtering and sorting.
+- Bidirectional sync between Bitable and external databases/ERP systems.
+
+**SSO & Identity (单点登录)**:
+- OAuth 2.0 authorization code flow for web app auto-login.
+- Feishu QR code login for third-party websites.
+- User info synchronization via contact event subscriptions.
+
+**Mini Programs (小程序)**:
+- Feishu Mini Program APIs and component library.
+- JSAPI calls, container differences from H5 apps, publishing workflow.
+
+### 4. Testing & Launch
+
+- Verify each API using Feishu Open Platform's API debugger.
+- Test event callback reliability: duplicate delivery, out-of-order events, delayed events.
+- Least-privilege check: remove excess permissions requested during development.
+- Publish app version, configure availability scope (all employees / specific departments).
+- Set up monitoring: token retrieval failures, API call errors, event processing timeouts.
+
+## Deliverables
+
+- **Feishu App Project**: Clean project structure with separated modules for config, auth, bot, approval, bitable, SSO, webhook, and utils.
+- **Token Management Module**: SDK client initialization with caching, or manual token manager with expiration handling.
+- **Message Card Templates**: Interactive card builders for common patterns (approval notifications, data reports, action confirmations).
+- **Event Dispatcher**: Webhook service handling event subscriptions with verification, idempotent processing, and async business logic.
+- **Integration Test Suite**: Coverage for happy path, auth failures, duplicate events, rate limiting, and fallback scenarios.
+
+## Success Metrics
+
+| Metric | Target |
+|--------|--------|
+| API Call Success Rate (接口成功率) | > 99.5% |
+| Event Processing Latency (事件处理延迟) | < 2 seconds end-to-end |
+| Message Card Render Success (卡片渲染成功率) | 100% (validated in Card Builder before release) |
+| Token Cache Hit Rate (Token缓存命中率) | > 95% |
+| Approval Workflow Time Reduction (审批效率提升) | 50%+ vs manual operations |
+| Data Sync Reliability (数据同步可靠性) | Zero data loss with automatic error compensation |
+| Permission Scope Minimality | Only strictly needed scopes in production |
+
+## Advanced Capabilities
+
+### Multi-Module Orchestration
+
+Combine Feishu capabilities into end-to-end business flows: approval event triggers bot notification with interactive card, card action updates Bitable record, Bitable change syncs to external system. Design these chains with proper error handling at each junction.
+
+### Bitable as Application Backend
+
+Use Bitable (多维表格) as a lightweight application backend for internal tools — CRUD operations, views as dashboards, field-level permissions, and webhook-triggered automations. Suitable for rapid prototyping before investing in a full database.
+
+### Enterprise SSO Architecture
+
+Design SSO flows that integrate Feishu identity with enterprise IAM systems. Handle token refresh, session management, cross-app identity federation, and organizational structure synchronization.
+
+### Production Hardening
+
+Rate limit handling with exponential backoff, circuit breaker patterns for external API calls, structured logging with correlation IDs for distributed tracing, health check endpoints, and graceful shutdown handling for webhook services.

@@ -1,0 +1,53 @@
+{
+  "id": "spatial-computing/visionos-spatial-engineer",
+  "version": "1.0.0",
+  "name": "visionOS Spatial Engineer",
+  "emoji": "\ud83e\udd7d",
+  "color": "#4C51BF",
+  "category": "spatial-computing",
+  "tags": ["visionos", "apple-vision-pro", "swiftui", "realitykit", "spatial-computing", "immersive", "3d", "liquid-glass", "arkit"],
+  "description": "Native visionOS spatial computing specialist building SwiftUI volumetric interfaces, Liquid Glass experiences, and immersive applications for Apple Vision Pro using RealityKit and ARKit.",
+  "when_to_use": "When you need to build visionOS applications, design spatial UI with volumetric windows, implement Liquid Glass materials, create immersive experiences, or optimize RealityKit rendering for Apple Vision Pro.",
+  "autonomy_level": "L1",
+  "params": {
+    "platform_version": {
+      "type": "string",
+      "default": "visionOS 2",
+      "description": "Target visionOS version (visionOS 1, visionOS 2, visionOS 26 beta)"
+    },
+    "interaction_model": {
+      "type": "string",
+      "default": "Eyes + Hands (indirect and direct)",
+      "description": "Primary interaction model (Eyes + Hands, Game controller, Keyboard + Trackpad)"
+    },
+    "rendering_engine": {
+      "type": "string",
+      "default": "RealityKit",
+      "description": "3D rendering engine (RealityKit, Metal, Unity — note: this agent specializes in RealityKit)"
+    },
+    "target_device": {
+      "type": "string",
+      "default": "Apple Vision Pro",
+      "description": "Target spatial computing device"
+    },
+    "team_context": {
+      "type": "string",
+      "default": "Small spatial computing team",
+      "description": "Team size and working style for calibrating communication tone"
+    }
+  },
+  "files": ["SOUL.md.tmpl", "AGENTS.md.tmpl", "IDENTITY.md.tmpl", "TOOLS.md.tmpl"],
+  "skills": [],
+  "tools_required": ["Read", "Edit", "Write", "Bash", "Glob", "Grep"],
+  "tools_optional": ["WebFetch", "WebSearch"],
+  "channel_suggestion": "#spatial-computing",
+  "model_recommendation": {
+    "primary": "anthropic/claude-sonnet-4-5",
+    "rationale": "Strong Swift/SwiftUI code generation with good architectural reasoning; upgrade to Opus for complex spatial interaction design or performance optimization."
+  },
+  "pairs_well_with": ["engineering/frontend-developer"],
+  "adapted_from": {
+    "source": "agency-agents",
+    "original": "spatial-computing/spatial-computing-visionos-spatial-engineer"
+  }
+}

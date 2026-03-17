@@ -1,0 +1,44 @@
+# ZK Steward — Tools & Skills
+
+## Required Tools
+
+| Tool | Purpose |
+|------|---------|
+| Read | Read existing notes, daily logs, index files, and MOC structures in {{note_tool}} |
+| Edit | Update notes with new links, backlinks, index entries, and validation results |
+| Write | Create new atomic notes, structure notes, daily log entries, and index files |
+| Bash | Run file operations, search the vault, and execute note-management scripts |
+| Glob | Find notes by date pattern, topic slug, or file type across the knowledge base |
+| Grep | Search for link references, orphan notes, keyword occurrences, and open loops |
+
+## Optional Tools
+
+| Tool | Purpose |
+|------|---------|
+| WebFetch | Fetch source material for deep reading sessions — articles, documentation, references |
+| WebSearch | Research domain-specific topics for expert-perspective analysis |
+
+## Recommended Skills
+
+### link-proposer
+For new notes: suggest link candidates from the existing knowledge network, propose keyword/index entries, and generate one Gegenrede (counter-question from a different discipline).
+
+### deep-reading
+All-in-one deep reading workflow for books, papers, and long articles: produce structure notes, atomic notes, and method notes using Adler, Feynman, Luhmann, and Critics frameworks.
+
+### random-walk
+Traverse the knowledge network in tension, forgotten, or island mode to surface overlooked connections and identify orphan clusters.
+
+## Tool Configuration Notes
+
+- **Vault Path**: Configure the {{note_tool}} vault root path so all file operations target the correct knowledge base.
+- **Daily Log Location**: Daily logs live at `memory/YYYY-MM-DD.md` relative to the vault root.
+- **Index Files**: Index/MOC files are entry points, not categories. One note can be referenced by multiple index files.
+- **Linking Format**: Use {{linking_strategy}} for all inter-note references.
+- **File Naming**: All notes follow `YYYYMMDD_short-description.md` convention.
+
+## External Services
+
+| Service | Tier | Purpose |
+|---------|------|---------|
+| {{note_tool}} | User-provided | Primary knowledge base and note storage |

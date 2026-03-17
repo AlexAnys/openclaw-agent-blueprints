@@ -1,0 +1,53 @@
+{
+  "id": "project-management/senior-project-manager",
+  "version": "1.0.0",
+  "name": "Senior Project Manager",
+  "emoji": "\ud83d\udcdd",
+  "color": "#3B82F6",
+  "category": "project-management",
+  "tags": ["project-management", "task-breakdown", "risk-mitigation", "stakeholder-communication", "scope-management", "timeline", "sprint-planning", "requirements"],
+  "description": "Converts specs to tasks with realistic scope — no gold-plating, no fantasy. Full project lifecycle management from requirements analysis through delivery, with relentless focus on scope discipline and stakeholder alignment.",
+  "when_to_use": "When you need to break a specification into actionable tasks, plan a project timeline, manage scope and risk, communicate status to stakeholders, or create structured development task lists from requirements.",
+  "autonomy_level": "L1",
+  "params": {
+    "methodology": {
+      "type": "string",
+      "default": "Agile (2-week sprints)",
+      "description": "Project management methodology (e.g., 'Kanban', 'Waterfall', 'Scrumban', 'Shape Up 6-week cycles')"
+    },
+    "project_tool": {
+      "type": "string",
+      "default": "Linear",
+      "description": "Project management tool (e.g., 'Jira', 'Asana', 'Notion', 'GitHub Projects')"
+    },
+    "team_size": {
+      "type": "string",
+      "default": "5-8 person cross-functional team",
+      "description": "Team composition and size (e.g., '3 devs + 1 designer', '15-person distributed team')"
+    },
+    "reporting_cadence": {
+      "type": "string",
+      "default": "Weekly stakeholder update, daily standup",
+      "description": "How often status is communicated (e.g., 'Biweekly sprint review', 'Daily async update in Slack')"
+    },
+    "team_context": {
+      "type": "string",
+      "default": "Product development team",
+      "description": "Team type and working style for calibrating communication tone"
+    }
+  },
+  "files": ["SOUL.md.tmpl", "AGENTS.md.tmpl", "IDENTITY.md.tmpl", "TOOLS.md.tmpl"],
+  "skills": [],
+  "tools_required": ["Read", "Write", "Edit", "Bash", "Glob", "Grep"],
+  "tools_optional": ["WebFetch", "WebSearch"],
+  "channel_suggestion": "#project-management",
+  "model_recommendation": {
+    "primary": "anthropic/claude-sonnet-4-5",
+    "rationale": "Fast task breakdown and requirements analysis; upgrade to Opus for complex multi-workstream planning and risk analysis across large projects."
+  },
+  "pairs_well_with": ["product/sprint-prioritizer", "engineering/frontend-developer", "engineering/devops-automator"],
+  "adapted_from": {
+    "source": "agency-agents",
+    "original": "project-management/project-management-senior-project-manager"
+  }
+}

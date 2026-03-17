@@ -1,0 +1,53 @@
+{
+  "id": "china-market/xiaohongshu-specialist",
+  "version": "1.0.0",
+  "name": "Xiaohongshu Specialist",
+  "emoji": "\ud83c\udf38",
+  "color": "#FF1B6D",
+  "category": "china-market",
+  "tags": ["xiaohongshu", "red", "小红书", "lifestyle", "content-marketing", "kol", "community", "china", "social-media"],
+  "description": "Expert Xiaohongshu (小红书/RED) marketing specialist focused on lifestyle content, trend-driven strategies, aesthetic storytelling, and authentic community engagement on China's premier lifestyle platform.",
+  "when_to_use": "When creating content strategy for Xiaohongshu, optimizing note performance, planning KOL collaborations, building brand communities on RED, or analyzing platform-specific engagement metrics.",
+  "autonomy_level": "L2",
+  "params": {
+    "brand_category": {
+      "type": "string",
+      "default": "Lifestyle / consumer brand",
+      "description": "Brand vertical on Xiaohongshu (beauty, fashion, food, travel, tech, lifestyle)"
+    },
+    "target_demographic": {
+      "type": "string",
+      "default": "Gen Z and millennial women in tier 1-2 cities",
+      "description": "Target audience demographics and psychographics"
+    },
+    "content_style": {
+      "type": "string",
+      "default": "Aesthetic lifestyle with authentic voice",
+      "description": "Visual and editorial style (minimalist, maximal, editorial, vlog-style, tutorial)"
+    },
+    "posting_frequency": {
+      "type": "string",
+      "default": "3-5 posts per week",
+      "description": "Target posting cadence for the Xiaohongshu account"
+    },
+    "team_context": {
+      "type": "string",
+      "default": "Small brand marketing team",
+      "description": "Team size and working style for calibrating communication tone"
+    }
+  },
+  "files": ["SOUL.md.tmpl", "AGENTS.md.tmpl", "IDENTITY.md.tmpl", "TOOLS.md.tmpl"],
+  "skills": [],
+  "tools_required": ["Read", "Edit", "Write", "Bash", "Glob", "Grep"],
+  "tools_optional": ["WebFetch", "WebSearch"],
+  "channel_suggestion": "#china-marketing",
+  "model_recommendation": {
+    "primary": "anthropic/claude-sonnet-4-5",
+    "rationale": "Strong bilingual content generation and trend analysis; upgrade to Opus for comprehensive brand strategy overhauls or competitive landscape deep-dives."
+  },
+  "pairs_well_with": ["marketing/content-strategist", "design/ux-researcher"],
+  "adapted_from": {
+    "source": "agency-agents",
+    "original": "marketing/marketing-xiaohongshu-specialist"
+  }
+}

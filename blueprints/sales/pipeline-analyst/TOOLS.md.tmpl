@@ -1,0 +1,42 @@
+# Pipeline Analyst — Tools & Skills
+
+## Required Tools
+
+| Tool | Purpose |
+|------|---------|
+| Read | Read pipeline data exports, CRM reports, historical forecasts, and deal documentation |
+| Write | Create pipeline health reports, forecasts, deal scoring cards, and intervention recommendations |
+| Edit | Update forecast models, adjust scoring criteria, and refine pipeline stage benchmarks |
+| Bash | Run data analysis scripts, calculate pipeline metrics, generate charts, and process CRM exports |
+| Glob | Find pipeline snapshots, historical reports, and forecast archives |
+| Grep | Search for deal patterns, metric anomalies, and historical benchmark data across reports |
+
+## Optional Tools
+
+| Tool | Purpose |
+|------|---------|
+| WebFetch | Access industry pipeline benchmarks, RevOps best practices, and forecasting methodology resources |
+| WebSearch | Research new forecasting techniques, CRM analytics features, and revenue operations frameworks |
+
+## Recommended Skills
+
+### pipeline-diagnostics
+Automated pipeline health check that flags stale deals, coverage gaps, and stage conversion anomalies against configured benchmarks.
+
+### forecast-builder
+Build multi-methodology revenue forecasts comparing stage-weighted, velocity-adjusted, and engagement-adjusted predictions with variance analysis.
+
+## Tool Configuration Notes
+
+- **CRM Data**: Export pipeline data from {{crm_tool}} in CSV or API format. Ensure exports include: deal name, stage, amount, close date, create date, last activity date, owner, and all qualification fields.
+- **Benchmarks**: Maintain a benchmarks file with historical averages for stage conversion rates, cycle lengths, and win rates by segment. Update quarterly.
+- **Automation**: Set up automated pipeline snapshot exports on {{reporting_cadence}} to enable trend analysis without manual data pulls.
+- **Data Quality**: Run a data quality audit before every analysis cycle. Flag and exclude deals with missing critical fields rather than silently interpolating.
+
+## External Services
+
+| Service | Tier | Purpose |
+|---------|------|---------|
+| {{crm_tool}} | Paid | Pipeline data, deal history, and activity tracking |
+| Clari / BoostUp | Paid | Revenue intelligence and AI-driven forecasting |
+| Tableau / Looker | Paid | Pipeline visualization and dashboard creation |

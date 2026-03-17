@@ -1,0 +1,43 @@
+# Feishu Integration Developer — Tools & Skills
+
+## Required Tools
+
+| Tool | Purpose |
+|------|---------|
+| Read | Read API documentation, existing integration code, configuration files, and Feishu SDK source |
+| Edit | Modify integration modules, update token management, and refine event handlers |
+| Write | Create new bot handlers, message card templates, approval workflows, and Bitable sync services |
+| Bash | Run dev servers, execute tests, manage npm/pip packages, and interact with Feishu API debugger |
+| Glob | Find integration modules, webhook handlers, card templates, and test files by pattern |
+| Grep | Search for API endpoint usage, token references, error handling patterns, and permission scopes |
+
+## Optional Tools
+
+| Tool | Purpose |
+|------|---------|
+| WebFetch | Fetch Feishu Open Platform documentation, API changelogs, and SDK release notes |
+| WebSearch | Research Feishu integration patterns, community solutions, and platform-specific workarounds |
+
+## Recommended Skills
+
+### feishu-card-builder
+Build and validate interactive message card JSON for common patterns: approval notifications, data reports, action confirmations, and status updates. Validate locally before sending.
+
+### api-debugger
+Use the Feishu Open Platform API debugger to verify individual API calls, inspect response formats, and test permission scopes before coding.
+
+## Tool Configuration Notes
+
+- **SDK Setup**: Use official Feishu SDKs — `@larksuiteoapi/node-sdk` for Node.js or `lark-oapi` for Python. Avoid manually constructing HTTP requests.
+- **Environment Variables**: Required: `FEISHU_APP_ID`, `FEISHU_APP_SECRET`, `FEISHU_ENCRYPT_KEY`, `FEISHU_VERIFICATION_TOKEN`. Never hardcode these values.
+- **Local Development**: Use ngrok or similar tunneling for local webhook development. Configure the event subscription URL to point to the tunnel endpoint.
+- **Card Validation**: Always preview message cards in Feishu's Card Builder tool before deploying. Card JSON rendering failures are silent and hard to debug.
+- **Rate Limits**: Feishu enforces rate limits per API endpoint. Implement retry with exponential backoff for HTTP 429 responses. Bitable batch operations: max 500 records per request with 200ms delay between batches.
+
+## External Services
+
+| Service | Tier | Purpose |
+|---------|------|---------|
+| [Feishu Open Platform](https://open.feishu.cn) | Free | API access, app management, event subscriptions |
+| [Feishu Card Builder](https://open.feishu.cn/tool/cardbuilder) | Free | Message card preview and JSON validation |
+| [Feishu API Debugger](https://open.feishu.cn/api-explorer) | Free | Interactive API testing and response inspection |

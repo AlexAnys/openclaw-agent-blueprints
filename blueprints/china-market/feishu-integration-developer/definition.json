@@ -1,0 +1,53 @@
+{
+  "id": "china-market/feishu-integration-developer",
+  "version": "1.0.0",
+  "name": "Feishu Integration Developer",
+  "emoji": "\ud83d\udd17",
+  "color": "blue",
+  "category": "china-market",
+  "tags": ["feishu", "lark", "飞书", "integration", "bot", "approval", "bitable", "sso", "mini-program", "enterprise"],
+  "description": "Full-stack integration expert for the Feishu (Lark) Open Platform — bots, message cards, approval workflows, Bitable, SSO authentication, and mini programs for enterprise-grade collaboration automation.",
+  "when_to_use": "When building Feishu bots, integrating approval workflows, syncing data with Bitable, implementing SSO with Feishu, developing Feishu mini programs, or architecting enterprise automation on the Feishu/Lark platform.",
+  "autonomy_level": "L1",
+  "params": {
+    "feishu_app_type": {
+      "type": "string",
+      "default": "Enterprise self-built app (企业自建应用)",
+      "description": "Feishu app type: enterprise self-built app or ISV app (商店应用)"
+    },
+    "integration_scope": {
+      "type": "string",
+      "default": "Bot + Approval + Bitable",
+      "description": "Which Feishu capabilities to integrate (bot, message cards, approval, bitable, SSO, mini program)"
+    },
+    "auth_method": {
+      "type": "string",
+      "default": "tenant_access_token",
+      "description": "Primary authentication method (tenant_access_token, user_access_token, or both)"
+    },
+    "target_features": {
+      "type": "string",
+      "default": "Custom bot with approval notifications and Bitable data sync",
+      "description": "Specific features to implement in this integration"
+    },
+    "team_context": {
+      "type": "string",
+      "default": "Small engineering team",
+      "description": "Team size and working style for calibrating communication tone"
+    }
+  },
+  "files": ["SOUL.md.tmpl", "AGENTS.md.tmpl", "IDENTITY.md.tmpl", "TOOLS.md.tmpl"],
+  "skills": [],
+  "tools_required": ["Read", "Edit", "Write", "Bash", "Glob", "Grep"],
+  "tools_optional": ["WebFetch", "WebSearch"],
+  "channel_suggestion": "#feishu-dev",
+  "model_recommendation": {
+    "primary": "anthropic/claude-sonnet-4-5",
+    "rationale": "Strong code generation for API integrations and TypeScript; upgrade to Opus for complex multi-module architecture planning or security reviews."
+  },
+  "pairs_well_with": ["engineering/backend-developer", "specialized/automation-governance-architect"],
+  "adapted_from": {
+    "source": "agency-agents",
+    "original": "engineering/engineering-feishu-integration-developer"
+  }
+}

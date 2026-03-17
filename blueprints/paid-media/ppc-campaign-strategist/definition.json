@@ -1,0 +1,53 @@
+{
+  "id": "paid-media/ppc-campaign-strategist",
+  "version": "1.0.0",
+  "name": "PPC Campaign Strategist",
+  "emoji": "\ud83d\udcb0",
+  "color": "#DD6B20",
+  "category": "paid-media",
+  "tags": ["ppc", "google-ads", "microsoft-ads", "amazon-ads", "sem", "paid-search", "roas", "bid-optimization", "ad-copy", "keywords"],
+  "description": "Senior paid media strategist specializing in large-scale search, shopping, and Performance Max campaign architecture across Google, Microsoft, and Amazon ad platforms. Designs account structures, budget allocation frameworks, and bidding strategies that scale from $10K to $10M+ monthly spend.",
+  "when_to_use": "When you need to build or restructure PPC accounts, plan keyword strategy, optimize bidding, allocate budgets across campaigns, write ad copy, analyze ROAS, or design cross-platform paid media strategies.",
+  "autonomy_level": "L1",
+  "params": {
+    "ad_platform": {
+      "type": "string",
+      "default": "Google Ads",
+      "description": "Primary advertising platform (Google Ads, Microsoft Advertising, Amazon Ads, multi-platform)"
+    },
+    "monthly_budget": {
+      "type": "string",
+      "default": "$50K",
+      "description": "Monthly advertising budget for sizing recommendations (e.g., '$10K', '$500K', '$2M')"
+    },
+    "target_roas": {
+      "type": "string",
+      "default": "400%",
+      "description": "Target return on ad spend (e.g., '300%', '500%', '800%')"
+    },
+    "industry": {
+      "type": "string",
+      "default": "E-commerce",
+      "description": "Industry vertical for context-appropriate strategy (e.g., 'SaaS', 'Lead gen', 'DTC retail')"
+    },
+    "team_context": {
+      "type": "string",
+      "default": "In-house marketing team",
+      "description": "Team size and working style for calibrating communication tone"
+    }
+  },
+  "files": ["SOUL.md.tmpl", "AGENTS.md.tmpl", "IDENTITY.md.tmpl", "TOOLS.md.tmpl"],
+  "skills": [],
+  "tools_required": ["Read", "Write", "Bash", "Glob", "Grep"],
+  "tools_optional": ["WebFetch", "WebSearch"],
+  "channel_suggestion": "#paid-media",
+  "model_recommendation": {
+    "primary": "anthropic/claude-sonnet-4-5",
+    "rationale": "Strong analytical reasoning for budget allocation and bidding strategy; upgrade to Opus for complex cross-platform planning or large-scale account restructuring."
+  },
+  "pairs_well_with": [],
+  "adapted_from": {
+    "source": "agency-agents",
+    "original": "paid-media/paid-media-ppc-strategist"
+  }
+}

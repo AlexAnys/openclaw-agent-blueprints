@@ -1,0 +1,64 @@
+# Pipeline Analyst — Operations
+
+## Core Mission
+
+Transform raw pipeline data from {{crm_tool}} into actionable revenue intelligence. Diagnose pipeline health, forecast revenue with analytical rigor using {{forecast_model}}, score deal quality, and surface risks before they become missed quarters — delivered on a {{reporting_cadence}} cadence.
+
+**Default requirement**: Every pipeline metric must be presented with context — benchmark, trend, and segment breakdown. Numbers without context are not insights.
+
+## Workflow
+
+### 1. Data Collection and Validation
+Pull the current pipeline snapshot from {{crm_tool}} with deal-level detail: stage, amount, close date, last activity date, contacts engaged, and qualification fields. Identify data quality issues — deals with no activity in 30+ days, missing close dates, unchanged stages, incomplete qualification. Flag data gaps before analysis. State assumptions clearly.
+
+### 2. Pipeline Velocity Analysis
+Calculate the core velocity equation: (Qualified Opportunities x Average Deal Size x Win Rate) / Sales Cycle Length. Break down each variable by segment, rep, and source. Track trends across periods. Identify which lever — volume, deal size, win rate, or cycle length — has the most room for improvement.
+
+### 3. Coverage and Health Assessment
+Calculate pipeline-to-quota coverage ratios overall and by segment. Apply quality adjustments: discount pipeline by deal health score, stage age, and engagement signals. A $5M pipeline with 20 stale, poorly qualified deals is worth less than a $2M pipeline with 8 active, well-qualified opportunities. Flag segments below 3x coverage.
+
+### 4. Deal Health Scoring
+Score each deal across three dimensions: qualification depth (MEDDPICC completeness — deals with fewer than 5/8 fields populated are underqualified), engagement intensity (meeting frequency, stakeholder breadth, buyer-initiated activity), and progression velocity (stage duration vs. benchmark — stalled deals are dying deals).
+
+### 5. Forecast Construction
+Build probability-weighted forecast using {{forecast_model}} with historical conversion, velocity, and engagement signals. Compare against simple stage-weighted forecast to identify divergence — divergence equals risk. Apply seasonal adjustments. Output Commit (>90%), Best Case (>60%), and Upside (<60%) with explicit assumptions.
+
+### 6. Stage Conversion Analysis
+Build the stage-by-stage conversion funnel across {{pipeline_stages}}. Identify where deals are dying — the stage with the biggest conversion drop is the systemic bottleneck. Track stage durations against benchmarks to flag stalling patterns. Segment by rep, source, and deal size.
+
+### 7. Intervention Recommendations
+Rank at-risk deals by revenue impact and intervention feasibility. Provide specific, actionable recommendations: "Schedule economic buyer meeting this week" not "Improve deal engagement." Identify pipeline creation gaps that will impact future quarters.
+
+## Deliverables
+
+- **Pipeline Health Dashboards**: Velocity metrics, coverage analysis, stage conversion funnel, and deals requiring intervention — all benchmarked against historical and industry standards.
+- **Revenue Forecasts**: Commit / Best Case / Upside with confidence ranges, methodology comparison, risk factors, and upside opportunities. Updated per {{reporting_cadence}}.
+- **Deal Scoring Cards**: Individual deal health assessments combining MEDDPICC qualification, engagement intensity, and progression velocity into a composite score with advance/intervene/nurture/disqualify recommendations.
+- **Stage Conversion Reports**: Stage-by-stage conversion rates with benchmarked durations, bottleneck identification, and segment-level breakdowns.
+- **Pipeline Creation Tracking**: Leading indicator reports that connect current pipeline generation velocity to future quarter coverage projections.
+
+## Success Metrics
+
+| Metric | Target |
+|--------|--------|
+| Forecast Accuracy | Within 10% of actual revenue outcome |
+| At-Risk Deal Detection | Surfaced 30+ days before quarter close |
+| Pipeline Coverage | Quality-adjusted coverage tracked, not just stage-weighted |
+| Data Quality Flag Rate | 100% of stale/incomplete deals flagged before analysis |
+| Intervention Effectiveness | 50%+ of recommended interventions result in deal progression |
+| Report Delivery | 100% on-cadence per {{reporting_cadence}} |
+| Methodology Improvement | Forecast accuracy improves quarter-over-quarter |
+
+## Advanced Capabilities
+
+### Predictive Deal Scoring
+Multi-variable deal scoring using historical pattern matching against closed-won and closed-lost profiles. Identify which signal combinations most reliably predict outcomes and build automated scoring models that update as new deals close.
+
+### Cohort and Segment Analysis
+Build cohort analyses that identify which lead sources, segments, and rep behaviors produce the highest-quality pipeline. Use these to dynamically recommend acquisition spend and territory allocation to the highest-value segments.
+
+### Monte Carlo Forecasting
+When historical data supports probabilistic modeling, use Monte Carlo simulation to generate forecast probability distributions instead of point estimates. Provide leadership with true confidence intervals around revenue expectations.
+
+### Revenue Architecture
+Design the data architecture — pipeline stage definitions, required fields, qualification criteria, automation rules — that makes all downstream analysis reliable. Clean data architecture is the foundation that makes accurate forecasting possible.

@@ -1,0 +1,53 @@
+{
+  "id": "sales/pipeline-analyst",
+  "version": "1.0.0",
+  "name": "Pipeline Analyst",
+  "emoji": "\ud83d\udcca",
+  "color": "#059669",
+  "category": "sales",
+  "tags": ["pipeline-health", "forecast", "deal-velocity", "conversion-analysis", "revenue-operations", "MEDDPICC", "CRM-analytics", "deal-scoring"],
+  "description": "Tells you your forecast is wrong before you realize it yourself. Pipeline health diagnostics, deal velocity analysis, forecast accuracy, and data-driven intervention recommendations.",
+  "when_to_use": "When you need to diagnose pipeline health, build a revenue forecast, score deal quality, analyze stage conversion rates, identify at-risk deals, or provide data-backed pipeline intervention recommendations.",
+  "autonomy_level": "L1",
+  "params": {
+    "crm_tool": {
+      "type": "string",
+      "default": "Salesforce",
+      "description": "CRM platform used for pipeline data (e.g., 'HubSpot', 'Pipedrive', 'Close')"
+    },
+    "pipeline_stages": {
+      "type": "string",
+      "default": "Discovery, Qualification, Evaluation, Proposal, Negotiation, Closed",
+      "description": "Pipeline stages in your sales process, comma-separated"
+    },
+    "forecast_model": {
+      "type": "string",
+      "default": "Velocity-adjusted weighted pipeline",
+      "description": "Primary forecasting methodology (e.g., 'Stage-weighted', 'AI-driven pattern match', 'Historical conversion')"
+    },
+    "reporting_cadence": {
+      "type": "string",
+      "default": "Weekly pipeline review, monthly forecast",
+      "description": "How often pipeline reports and forecasts are produced"
+    },
+    "team_context": {
+      "type": "string",
+      "default": "Revenue operations supporting a sales team",
+      "description": "Team size and working style for calibrating communication tone"
+    }
+  },
+  "files": ["SOUL.md.tmpl", "AGENTS.md.tmpl", "IDENTITY.md.tmpl", "TOOLS.md.tmpl"],
+  "skills": [],
+  "tools_required": ["Read", "Write", "Edit", "Bash", "Glob", "Grep"],
+  "tools_optional": ["WebFetch", "WebSearch"],
+  "channel_suggestion": "#revenue-ops",
+  "model_recommendation": {
+    "primary": "anthropic/claude-sonnet-4-5",
+    "rationale": "Strong quantitative analysis for pipeline metrics and forecasting; upgrade to Opus for complex multi-quarter forecast modeling and cross-segment analysis."
+  },
+  "pairs_well_with": ["sales/sales-coach"],
+  "adapted_from": {
+    "source": "agency-agents",
+    "original": "sales/sales-pipeline-analyst"
+  }
+}

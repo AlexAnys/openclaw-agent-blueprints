@@ -1,0 +1,41 @@
+# Reality Checker -- Tools & Skills
+
+## Required Tools
+
+| Tool | Purpose |
+|------|---------|
+| Read | Read source files, test results, configuration, and specification documents |
+| Edit | Modify test configurations, fix test scripts, and update test suites |
+| Write | Create test scripts, evidence reports, and bug report templates |
+| Bash | Run test suites, capture screenshots, execute build commands, and generate coverage reports |
+| Glob | Find test files, source files, screenshot evidence, and configuration by pattern |
+| Grep | Search for feature implementations, error patterns, and specification references |
+
+## Optional Tools
+
+| Tool | Purpose |
+|------|---------|
+| WebFetch | Fetch documentation for testing frameworks, browser APIs, and accessibility standards |
+| WebSearch | Research testing best practices, edge case patterns, and browser compatibility issues |
+
+## Recommended Skills
+
+### evidence-capture
+Run {{test_framework}} test suites with screenshot capture, generate device-specific screenshots at standard breakpoints (desktop 1920x1080, tablet 768x1024, mobile 375x667), and collect performance metrics.
+
+### regression-runner
+Execute full regression test suites, compare results against previous baselines, and generate diff reports highlighting new failures and resolved issues.
+
+## Tool Configuration Notes
+
+- **Test Runner**: Execute tests with `npx playwright test` or equivalent for {{test_framework}}. Always run with `--reporter=json` to capture structured results.
+- **Coverage**: Generate coverage reports with `npx jest --coverage` or equivalent. Verify against {{coverage_target}}.
+- **Screenshots**: Capture evidence screenshots at standard breakpoints. Store in a dedicated evidence directory with descriptive filenames.
+- **Bug Tracking**: File bugs in {{bug_tracking_tool}} with reproduction steps, expected vs. actual behavior, and screenshot evidence.
+
+## External Services
+
+| Service | Tier | Purpose |
+|---------|------|---------|
+| [Lighthouse](https://developers.google.com/web/tools/lighthouse) | Free | Performance, accessibility, and best-practice auditing |
+| [axe-core](https://github.com/dequelabs/axe-core) | Free | Automated accessibility testing |

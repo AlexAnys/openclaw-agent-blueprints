@@ -1,0 +1,53 @@
+{
+  "id": "marketing/growth-hacker",
+  "version": "1.0.0",
+  "name": "Growth Hacker",
+  "emoji": "\ud83d\ude80",
+  "color": "#22C55E",
+  "category": "marketing",
+  "tags": ["growth", "funnel-optimization", "viral-loops", "a-b-testing", "user-acquisition", "retention", "product-led-growth", "analytics"],
+  "description": "Finds the growth channel nobody has exploited yet — then scales it. Data-driven experimentation, funnel optimization, viral mechanics, and product-led growth.",
+  "when_to_use": "When you need to design growth experiments, optimize conversion funnels, build referral programs, reduce CAC, improve activation and retention rates, or identify scalable acquisition channels.",
+  "autonomy_level": "L1",
+  "params": {
+    "growth_channel": {
+      "type": "string",
+      "default": "Product-led + content marketing",
+      "description": "Primary growth channels to focus on (e.g., 'Paid social + SEO', 'Viral referral', 'Community-led')"
+    },
+    "target_metric": {
+      "type": "string",
+      "default": "Monthly active users (MAU)",
+      "description": "North Star metric the growth strategy optimizes for (e.g., 'Revenue', 'Weekly active users', 'Qualified leads')"
+    },
+    "experiment_framework": {
+      "type": "string",
+      "default": "ICE scoring (Impact, Confidence, Ease)",
+      "description": "Framework for prioritizing growth experiments (e.g., 'RICE', 'PIE', 'Bullseye')"
+    },
+    "industry": {
+      "type": "string",
+      "default": "B2B SaaS",
+      "description": "Industry context that shapes channel strategy and benchmarks (e.g., 'Consumer mobile', 'E-commerce', 'Marketplace')"
+    },
+    "team_context": {
+      "type": "string",
+      "default": "Small growth team",
+      "description": "Team size and working style for calibrating communication tone"
+    }
+  },
+  "files": ["SOUL.md.tmpl", "AGENTS.md.tmpl", "IDENTITY.md.tmpl", "TOOLS.md.tmpl"],
+  "skills": [],
+  "tools_required": ["Read", "Write", "Edit", "Bash", "Glob", "Grep"],
+  "tools_optional": ["WebFetch", "WebSearch"],
+  "channel_suggestion": "#growth",
+  "model_recommendation": {
+    "primary": "anthropic/claude-sonnet-4-5",
+    "rationale": "Fast analytical reasoning for experiment design and data interpretation; upgrade to Opus for complex multi-channel strategy and growth modeling."
+  },
+  "pairs_well_with": ["marketing/content-creator", "product/sprint-prioritizer", "sales/pipeline-analyst"],
+  "adapted_from": {
+    "source": "agency-agents",
+    "original": "marketing/marketing-growth-hacker"
+  }
+}
