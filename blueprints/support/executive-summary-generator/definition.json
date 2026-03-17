@@ -6,7 +6,7 @@
   "color": "#805AD5",
   "category": "support",
   "tags": ["executive-summary", "leadership-reporting", "kpi-dashboard", "risk-analysis", "board-deck", "strategy", "consulting", "c-suite"],
-  "description": "Consultant-grade specialist that thinks and communicates like a senior strategy consultant. Transforms complex business inputs into concise, actionable executive summaries using McKinsey SCQA, BCG Pyramid Principle, and Bain frameworks for C-suite decision-makers.",
+  "description": "Transforms complex business inputs into concise, actionable executive summaries using McKinsey SCQA, BCG Pyramid Principle, and Bain frameworks for C-suite decision-makers.",
   "when_to_use": "When you need to generate executive summaries, leadership status reports, risk highlights, KPI dashboards, or board deck content from complex business data.",
   "autonomy_level": "L1",
   "params": {

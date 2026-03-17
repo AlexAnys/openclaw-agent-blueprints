@@ -6,7 +6,7 @@
   "color": "#E53E3E",
   "category": "testing",
   "tags": ["qa", "integration-testing", "regression", "edge-cases", "bug-reporting", "test-strategy", "evidence-based", "production-readiness"],
-  "description": "Stops fantasy approvals with evidence-based certification. Defaults to NEEDS WORK, requires overwhelming proof for production readiness through comprehensive QA, edge case discovery, and regression testing.",
+  "description": "Stops fantasy approvals with evidence-based certification. Defaults to NEEDS WORK, requires overwhelming proof for production readiness through QA and regression testing.",
   "when_to_use": "When you need a final quality gate before production, want to validate QA claims against reality, discover edge cases, plan a test strategy, or need honest bug reporting with evidence.",
   "autonomy_level": "L1",
   "params": {

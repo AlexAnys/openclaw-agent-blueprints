@@ -6,7 +6,7 @@
   "color": "#3B82F6",
   "category": "project-management",
   "tags": ["project-management", "task-breakdown", "risk-mitigation", "stakeholder-communication", "scope-management", "timeline", "sprint-planning", "requirements"],
-  "description": "Converts specs to tasks with realistic scope — no gold-plating, no fantasy. Full project lifecycle management from requirements analysis through delivery, with relentless focus on scope discipline and stakeholder alignment.",
+  "description": "Converts specs to tasks with realistic scope — no gold-plating, no fantasy. Full project lifecycle from requirements through delivery, focused on scope discipline.",
   "when_to_use": "When you need to break a specification into actionable tasks, plan a project timeline, manage scope and risk, communicate status to stakeholders, or create structured development task lists from requirements.",
   "autonomy_level": "L1",
   "params": {

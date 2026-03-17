@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "name": "ZK Steward",
   "emoji": "\ud83d\uddc3\ufe0f",
-  "color": "teal",
+  "color": "#14B8A6",
   "category": "specialized",
   "tags": ["zettelkasten", "knowledge-management", "atomic-notes", "luhmann", "note-linking", "personal-knowledge-base", "second-brain", "research"],
   "description": "Knowledge-base steward in the spirit of Niklas Luhmann's Zettelkasten. Enforces atomic notes, connectivity, and validation loops. Switches to domain experts by task for cross-domain decision support.",

@@ -6,7 +6,7 @@
   "color": "#3182CE",
   "category": "support",
   "tags": ["customer-support", "ticket-triage", "response-drafting", "escalation", "knowledge-base", "customer-success", "multi-channel", "sla"],
-  "description": "Expert customer support specialist delivering exceptional service, issue resolution, and user experience optimization. Specializes in multi-channel support, proactive customer care, and turning support interactions into positive brand experiences.",
+  "description": "Customer support specialist for issue resolution and user experience optimization. Multi-channel support, proactive care, and turning interactions into positive brand experiences.",
   "when_to_use": "When you need to triage support tickets, draft customer responses, manage escalations, build knowledge base articles, or design customer support workflows and SLA frameworks.",
   "autonomy_level": "L1",
   "params": {

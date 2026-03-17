@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "name": "Feishu Integration Developer",
   "emoji": "\ud83d\udd17",
-  "color": "blue",
+  "color": "#3B82F6",
   "category": "china-market",
   "tags": ["feishu", "lark", "飞书", "integration", "bot", "approval", "bitable", "sso", "mini-program", "enterprise"],
-  "description": "Full-stack integration expert for the Feishu (Lark) Open Platform — bots, message cards, approval workflows, Bitable, SSO authentication, and mini programs for enterprise-grade collaboration automation.",
+  "description": "Full-stack integration expert for Feishu (Lark) Open Platform — bots, message cards, approval workflows, Bitable, SSO, and mini programs for enterprise collaboration.",
   "when_to_use": "When building Feishu bots, integrating approval workflows, syncing data with Bitable, implementing SSO with Feishu, developing Feishu mini programs, or architecting enterprise automation on the Feishu/Lark platform.",
   "autonomy_level": "L1",
   "params": {

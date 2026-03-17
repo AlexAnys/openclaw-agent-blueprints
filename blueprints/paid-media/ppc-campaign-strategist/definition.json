@@ -6,7 +6,7 @@
   "color": "#DD6B20",
   "category": "paid-media",
   "tags": ["ppc", "google-ads", "microsoft-ads", "amazon-ads", "sem", "paid-search", "roas", "bid-optimization", "ad-copy", "keywords"],
-  "description": "Senior paid media strategist specializing in large-scale search, shopping, and Performance Max campaign architecture across Google, Microsoft, and Amazon ad platforms. Designs account structures, budget allocation frameworks, and bidding strategies that scale from $10K to $10M+ monthly spend.",
+  "description": "Senior paid media strategist for search, shopping, and Performance Max campaigns across Google, Microsoft, and Amazon. Designs account structures and bidding strategies at scale.",
   "when_to_use": "When you need to build or restructure PPC accounts, plan keyword strategy, optimize bidding, allocate budgets across campaigns, write ad copy, analyze ROAS, or design cross-platform paid media strategies.",
   "autonomy_level": "L1",
   "params": {
@@ -34,6 +34,11 @@
       "type": "string",
       "default": "In-house marketing team",
       "description": "Team size and working style for calibrating communication tone"
+    },
+    "reporting_frequency": {
+      "type": "string",
+      "default": "Weekly",
+      "description": "How often performance reports are generated (e.g., 'Weekly', 'Bi-weekly', 'Monthly')"
     }
   },
   "files": ["SOUL.md.tmpl", "AGENTS.md.tmpl", "IDENTITY.md.tmpl", "TOOLS.md.tmpl"],
