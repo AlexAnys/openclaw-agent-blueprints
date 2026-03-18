@@ -4,7 +4,7 @@ A curated, methodology-driven blueprint library for [OpenClaw](https://github.co
 
 ## The Problem
 
-The OpenClaw ecosystem has grown to 120+ agent templates across dozens of community repos. That's great for breadth, but terrible for getting started. New users face three questions with no clear answer:
+The OpenClaw ecosystem has 120+ agent templates across dozens of community repos. That's great for breadth, but terrible for getting started:
 
 1. **Which agent fits my workflow?** Template names alone don't tell you enough.
 2. **How do I customize it?** Every team has different tools, tone, and constraints.
@@ -12,7 +12,7 @@ The OpenClaw ecosystem has grown to 120+ agent templates across dozens of commun
 
 ## Our Solution
 
-**18 curated blueprints across 12 domains**, each selected through a repeatable methodology and packaged with everything you need to go from zero to working agent in 5 minutes.
+**18 curated blueprints across 12 domains**, selected through a repeatable methodology and adapted for OpenClaw's multi-agent architecture.
 
 | Domain | Blueprints |
 |--------|-----------|
@@ -29,89 +29,96 @@ The OpenClaw ecosystem has grown to 120+ agent templates across dozens of commun
 | Specialized | ZK Steward, Automation Governance Architect |
 | China Market | Xiaohongshu Specialist, Feishu Integration Developer |
 
+## For Onboarding Agents
+
+If you are an OpenClaw onboarding Agent (e.g., Ops Agent), start here:
+
+**[`ops-interface/INSTRUCTIONS.md`](./ops-interface/INSTRUCTIONS.md)** — Complete operational guide for environment detection, blueprint selection, materialization, registration, and validation.
+
+## For Humans
+
+If you're a human exploring this repo:
+
+**[`METHODOLOGY.md`](./METHODOLOGY.md)** — Design rationale, selection framework, customization principles, and OpenClaw adaptation guidelines.
+
 ## Architecture
 
 Each blueprint uses a dual-layer design:
 
 ```
 blueprints/{domain}/{role}/
-├── definition.json          # Platform-agnostic metadata, parameters, tags
-├── SOUL.md.tmpl             # Parameterized personality template
-├── AGENTS.md.tmpl           # Parameterized workflow & deliverables
-├── IDENTITY.md.tmpl         # Quick reference card
-├── TOOLS.md.tmpl            # Skills and tool configuration
-└── bindings/
-    └── openclaw/
-        └── README.md        # Materialization instructions + openclaw.json snippet
+├── definition.json          # Metadata, params, onboarding questions, tools_deny
+├── SOUL.md.tmpl             # 人格、职责、自主权边界、输出风格
+├── AGENTS.md.tmpl           # Every Session 流程、任务处理、Spawn 调度
+├── IDENTITY.md.tmpl         # name / emoji / vibe
+├── TOOLS.md.tmpl            # 工具指导（实际可用性由 openclaw.json 控制）
+└── bindings/openclaw/
+    └── README.md            # Materialization instructions
 ```
 
-**`definition.json`** is the portable layer — it describes what the agent does, when to use it, and what parameters it needs. This layer is platform-agnostic and could target any agent runtime.
+**`definition.json`** is the machine-readable metadata layer. It includes:
+- Blueprint parameters with typed defaults
+- `onboarding.questions` — what to ask the user during setup (with `auto_detect` hints)
+- `tools_deny` — explicit tool restrictions for safety boundaries
+- `when_to_use` / `tags` — for intent matching and discovery
 
-**`*.md.tmpl`** files are parameterized templates with `{{variable}}` placeholders. During materialization, these get resolved with your context and written to the OpenClaw workspace.
+**`*.md.tmpl`** files are OpenClaw workspace templates. They follow OpenClaw conventions:
+- SOUL.md: 80-120 lines max, includes 自主权边界 (autonomy boundaries)
+- AGENTS.md: includes Every Session flow and Spawn 调度
+- All use `{{variable}}` placeholders resolved during materialization
 
-**`bindings/openclaw/`** contains platform-specific instructions — how to materialize templates into an OpenClaw workspace, register the agent, and configure bindings.
+**File hierarchy:**
+
+| Layer | Files | Source | Purpose |
+|-------|-------|--------|---------|
+| Layer 1: Blueprint | SOUL.md, AGENTS.md, IDENTITY.md, TOOLS.md | This repo's templates | Who the agent is, how it works |
+| Layer 2: Onboarding | USER.md, HEARTBEAT.md, openclaw.json config | Generated at deploy time | Adapts to user environment |
+| Layer 3: Runtime | MEMORY.md, memory/, skills/ | Agent maintains itself | Accumulates over time |
 
 ## Quick Start
 
-**Onboard your first agent in 5 minutes:**
-
 ```bash
-# 1. Clone this repo
+# 1. Clone
 git clone https://github.com/AlexAnys/openclaw-agent-blueprints.git
 cd openclaw-agent-blueprints
 
-# 2. Pick a blueprint (e.g., frontend-developer)
-ls blueprints/engineering/frontend-developer/
+# 2. Pick a blueprint
+cat blueprints/engineering/frontend-developer/definition.json
 
-# 3. Copy bindings to your OpenClaw workspace
-cp -r blueprints/engineering/frontend-developer/bindings/openclaw/* \
-  ~/.openclaw/workspace/agents/frontend-developer/
+# 3. Copy templates to your workspace
+cp blueprints/engineering/frontend-developer/*.tmpl \
+  ~/.openclaw/workspace-frontend-developer/
 
-# 4. Edit the workspace files — replace {{variables}} with your context
-#    e.g., {{tech_stack}} → "React + TypeScript + Tailwind"
+# 4. Rename .tmpl → .md and replace {{variables}}
+# e.g., {{tech_stack}} → "React + TypeScript + Tailwind"
 
-# 5. Register the agent in your openclaw.json
-#    Add the agent ID to agents.list and configure bindings
+# 5. Register in openclaw.json (agents.list + bindings)
 
-# 6. Start using it
-openclaw chat --agent frontend-developer
+# 6. Restart Gateway and test
 ```
 
-For automated materialization and parameter resolution, see the [ops-interface](./ops-interface/) directory.
+For automated onboarding, point your Ops Agent at `ops-interface/INSTRUCTIONS.md`.
 
-## Methodology
+## Team Compositions (Planned)
 
-Every blueprint in this repo was selected and structured using a repeatable framework. Before adding or customizing a blueprint, read **[METHODOLOGY.md](./METHODOLOGY.md)** — it covers:
+Pre-built multi-agent team templates are planned in `teams/`:
 
-- How to identify which part of your workflow needs an AI agent
-- How to map needs to domains and match blueprints
-- How to customize parameters, personality, and tools
-- The full onboarding workflow from clone to first task
-- When and how to compose agents into teams
-
-## Team Compositions
-
-Beyond individual agents, this repo includes pre-built **team compositions** for common multi-agent workflows:
-
-| Team | Agents | Use Case |
-|------|--------|----------|
-| China Content Engine | Xiaohongshu Specialist + Content Creator | Localized content production pipeline |
-| Dev Squad | Frontend Developer + DevOps Automator + Reality Checker | Full-cycle development with built-in QA |
-| Startup MVP | Sprint Prioritizer + Frontend Developer + Growth Hacker | Rapid prototyping with growth feedback loop |
-
-Teams are defined in `teams/` with shared configuration and coordination protocols.
+| Team | Agents | Coordination |
+|------|--------|-------------|
+| China Content Engine | Xiaohongshu + Content Creator + Growth Hacker | Collaborative |
+| Dev Squad | Frontend + DevOps + Reality Checker | Sequential pipeline |
+| Startup MVP | Sprint Prioritizer + Frontend + Growth Hacker | Hierarchical |
 
 ## Roadmap
 
-- [ ] Materializer CLI tool for automated parameter resolution
-- [ ] `ops-agent` integration for self-service blueprint discovery and deployment
-- [ ] Blueprint quality scoring and community ratings
+- [ ] Populate team composition templates with shared protocols
+- [ ] Materializer CLI for automated parameter resolution
+- [ ] Community-contributed blueprints with quality tiers
 - [ ] Additional platform bindings (Dify, Coze, custom runtimes)
-- [ ] Blueprint versioning and migration tooling
 
 ## Contributing
 
-We welcome contributions — new blueprints, improved bindings, team compositions, and methodology refinements. Please follow the structure and methodology described in this repo when submitting additions.
+We welcome contributions — new blueprints, improved templates, team compositions, and methodology refinements. Please follow the structure described in `METHODOLOGY.md`.
 
 ## License
 

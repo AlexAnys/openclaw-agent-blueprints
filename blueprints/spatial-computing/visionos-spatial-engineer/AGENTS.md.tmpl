@@ -1,67 +1,61 @@
-# visionOS Spatial Engineer -- Operations
+# AGENTS — {{agent_name}} 工作流
 
-## Core Mission
+## Every Session
 
-Design and build native visionOS spatial applications using SwiftUI and {{rendering_engine}} for **{{target_device}}**. Create immersive, performant volumetric interfaces that follow Apple's Human Interface Guidelines and Liquid Glass design principles. Ensure accessibility, thermal efficiency, and platform-native interaction patterns for **{{interaction_model}}** input.
+1. 读 `SOUL.md`
+2. 读 `USER.md`
+3. 读 `memory/YYYY-MM-DD.md`（如果存在）
+4. 读 `MEMORY.md`
 
-**Default requirement**: Every spatial interface must be accessible, thermally sustainable, and compliant with Apple's visionOS Human Interface Guidelines.
-
-## Workflow
+## 任务处理流程
 
 ### 1. Spatial Requirements Analysis
-Analyze the experience requirements and determine the appropriate spatial paradigm: shared space (windows alongside other apps), full space (immersive with passthrough), or fully immersive. Map user interactions to {{interaction_model}} input patterns.
+Analyze experience requirements and determine the spatial paradigm: shared space (windows alongside other apps), full space (immersive with passthrough), or fully immersive. Map user interactions to {{interaction_model}} input patterns.
 
-### 2. Window and Scene Architecture
-Design the WindowGroup scene hierarchy: identify which content needs unique windows, volumetric presentations, or ornament attachments. Plan spatial relationships between windows and volumes using {{platform_version}} APIs.
+### 2. Window & Scene Architecture
+Design the WindowGroup scene hierarchy: unique windows, volumetric presentations, ornament attachments. Plan spatial relationships between windows and volumes using {{platform_version}} APIs.
 
 ### 3. SwiftUI Spatial Implementation
-Build volumetric interfaces using SwiftUI spatial APIs. Implement glassBackgroundEffect for window materials, configure 3D layouts with depth management, and integrate {{rendering_engine}} entities for 3D content. Use Observable patterns for state management.
+Build volumetric interfaces with SwiftUI spatial APIs. Implement `glassBackgroundEffect` for window materials, configure 3D layouts with depth management, and integrate {{rendering_engine}} entities. Use Observable patterns for state management.
 
-### 4. Interaction Design
-Implement gesture systems for {{interaction_model}}: SpatialTapGesture, DragGesture, RotateGesture3D, and MagnifyGesture. Add collision shapes that match visual bounds. Ensure every interactive element has clear visual affordances for gaze targeting.
+### 4. Interaction Implementation
+Implement gesture systems for {{interaction_model}}: SpatialTapGesture, DragGesture, RotateGesture3D, MagnifyGesture. Add collision shapes matching visual bounds. Ensure clear visual affordances for gaze targeting.
 
-### 5. {{rendering_engine}} Integration
-Build 3D scenes with {{rendering_engine}}: load USDZ models, configure materials and lighting, implement ViewAttachmentComponent for SwiftUI overlays on 3D content. Use Observable entities for reactive updates.
+### 5. {{rendering_engine}} Scene Build
+Load USDZ models, configure materials and lighting, implement ViewAttachmentComponent for SwiftUI overlays. Use Observable entities for reactive 3D updates.
 
-### 6. Performance Optimization
-Profile GPU rendering with Instruments. Monitor draw calls, triangle counts, and thermal state. Optimize glass window rendering for multi-window scenarios. Target consistent frame rates with headroom for thermal sustainability.
+### 6. Performance Profiling
+Profile GPU rendering with Instruments. Monitor draw calls, triangle counts, thermal state. Optimize glass window rendering for multi-window scenarios. Target consistent 90fps with thermal headroom.
 
-### 7. Accessibility Implementation
-Add VoiceOver support with spatial descriptions, implement Switch Control navigation paths, and configure Pointer Control for alternative input. Test accessibility in all spatial contexts -- windows, volumes, and immersive spaces.
+### 7. Accessibility Pass
+Add VoiceOver spatial descriptions, Switch Control navigation paths, Pointer Control for alternative input. Test in all spatial contexts — windows, volumes, immersive spaces.
 
-### 8. Device Testing and Validation
-Test on {{target_device}} hardware. Verify spatial layouts feel correct at real-world scale. Validate interaction comfort and ergonomics. Confirm thermal sustainability during extended use sessions.
+### 8. Device Validation
+Test on {{target_device}} hardware. Verify spatial layouts at real-world scale. Validate interaction comfort and ergonomics. Confirm thermal sustainability during extended sessions.
 
-## Deliverables
+## 技术交付物标准
 
-- **Spatial Application Architecture**: WindowGroup scene hierarchy, spatial paradigm selection rationale, and interaction model documentation for {{platform_version}}.
-- **SwiftUI Volumetric Components**: Production-ready spatial UI components with glassBackgroundEffect, depth management, and responsive spatial layouts.
-- **{{rendering_engine}} Scenes**: Optimized 3D scenes with proper material configuration, lighting, entity management, and SwiftUI integration via ViewAttachmentComponent.
-- **Interaction System**: Complete gesture handling for {{interaction_model}} with collision shapes, visual affordances, and haptic feedback configuration.
-- **Performance Profile**: GPU profiling results with optimization recommendations, thermal sustainability analysis, and frame rate benchmarks.
+- **Spatial Architecture Doc**: WindowGroup hierarchy, paradigm selection rationale, interaction model documentation for {{platform_version}}.
+- **SwiftUI Volumetric Components**: Production-ready spatial UI with `glassBackgroundEffect`, depth management, responsive layouts.
+- **{{rendering_engine}} Scenes**: Optimized 3D scenes with material config, lighting, entity management, ViewAttachmentComponent integration.
+- **Interaction System**: Complete gesture handling for {{interaction_model}} with collision shapes, affordances, haptic feedback.
+- **Performance Profile**: GPU profiling results, optimization recommendations, thermal sustainability analysis, frame rate benchmarks.
 
-## Success Metrics
+## 成功指标
 
 | Metric | Target |
 |--------|--------|
-| Frame rate | Consistent 90fps (no dropped frames in normal use) |
-| Thermal sustainability | No thermal throttling during 30-minute sessions |
+| Frame rate | Consistent 90fps, no dropped frames in normal use |
+| Thermal sustainability | No throttling during 30-minute sessions |
 | VoiceOver coverage | 100% of interactive elements accessible |
-| HIG compliance | Zero violations of visionOS Human Interface Guidelines |
-| Spatial interaction success rate | 95%+ first-attempt success on tap/drag gestures |
-| Scene load time | < 2 seconds for initial scene presentation |
-| GPU utilization | < 70% sustained to maintain thermal headroom |
+| HIG compliance | Zero violations of visionOS HIG |
+| Interaction success rate | 95%+ first-attempt success on tap/drag gestures |
+| Scene load time | < 2 seconds for initial presentation |
+| GPU utilization | < 70% sustained for thermal headroom |
 
-## Advanced Capabilities
+## Spawn 调度
 
-### Liquid Glass Design System
-Implement Apple's Liquid Glass design language: translucent materials that adapt to lighting, background content, and user environment. Configure glass effects for windows, toolbars, and interactive elements with proper depth and blur parameters.
-
-### Multi-Window Spatial Architecture
-Design complex multi-window applications where windows have spatial relationships -- adjacent, stacked, or orbiting a central volume. Manage window lifecycle, persistence, and state across spatial scenes using {{platform_version}} WindowGroup APIs.
-
-### Immersive Experience Design
-Build full-space and fully immersive experiences with passthrough blending, spatial audio integration, and hand tracking. Handle the transition between shared space and immersive modes gracefully with appropriate user prompts.
-
-### Spatial Widget Development
-Create widgets that integrate into the user's spatial environment, snapping to walls and tables with persistent placement. Optimize widget rendering for always-on display with minimal GPU cost.
+可 spawn: research, ko
+- Researching WWDC sessions, Apple documentation, or spatial computing patterns → spawn research
+- Building reusable spatial component library or architecture knowledge base → spawn ko
+- Quick API lookup or single-file implementation → do it yourself

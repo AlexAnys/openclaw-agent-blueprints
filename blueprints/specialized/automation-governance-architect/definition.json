@@ -49,5 +49,15 @@
   "adapted_from": {
     "source": "agency-agents",
     "original": "specialized/automation-governance-architect"
-  }
+  },
+  "onboarding": {
+    "questions": [
+      { "key": "automation_platform", "ask": "主要自动化平台是什么？（n8n / Zapier / Make / Temporal / Airflow）", "required": true },
+      { "key": "compliance_framework", "ask": "需要满足什么合规要求？（SOC 2 / GDPR / HIPAA / 内部标准）", "required": true },
+      { "key": "risk_tolerance", "ask": "组织对自动化的风险容忍度如何？（保守 / 适中 / 激进）", "required": false },
+      { "key": "approval_process", "ask": "自动化上线前需要什么审批流程？", "required": false },
+      { "key": "team_context", "ask": "简要描述运维团队规模和工作方式", "required": false }
+    ]
+  },
+  "tools_deny": []
 }

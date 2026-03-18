@@ -1,35 +1,12 @@
-# OpenClaw Binding -- Reality Checker
+# OpenClaw Binding
 
-## Materialization
+For complete materialization and registration instructions, see [`ops-interface/INSTRUCTIONS.md`](../../../../ops-interface/INSTRUCTIONS.md).
 
-1. Copy the template files to your OpenClaw workspace:
-   ```bash
-   mkdir -p ~/.openclaw/workspace/agents/reality-checker/
-   cp SOUL.md.tmpl  ~/.openclaw/workspace/agents/reality-checker/SOUL.md
-   cp AGENTS.md.tmpl ~/.openclaw/workspace/agents/reality-checker/AGENTS.md
-   cp TOOLS.md.tmpl  ~/.openclaw/workspace/agents/reality-checker/TOOLS.md
-   ```
+## Quick Reference
 
-2. Resolve parameters in each file -- replace all `{{variable}}` placeholders:
-   - `{{test_framework}}` -- e.g., "Playwright + Jest"
-   - `{{coverage_target}}` -- e.g., "80% line coverage, 100% critical path coverage"
-   - `{{environment}}` -- e.g., "Staging (mirrors production)"
-   - `{{bug_tracking_tool}}` -- e.g., "Linear"
-   - `{{team_context}}` -- e.g., "6-person product team, 2-week sprints"
+1. Copy `*.md.tmpl` from the blueprint root to your workspace (`~/.openclaw/workspace-{agentId}/`)
+2. Rename `.tmpl` → `.md` and resolve all `{{variable}}` placeholders
+3. Register in `openclaw.json` (`agents.list` + `bindings`)
+4. Restart Gateway and test
 
-3. Register in `openclaw.json`:
-   ```json
-   {
-     "agents": {
-       "list": [
-         {
-           "id": "reality-checker",
-           "name": "Reality Checker",
-           "description": "Evidence-based QA certification -- edge cases, regression testing, production readiness"
-         }
-       ]
-     }
-   }
-   ```
-
-4. Verify: `openclaw chat --agent reality-checker`
+Parameters and onboarding questions are defined in `definition.json`.

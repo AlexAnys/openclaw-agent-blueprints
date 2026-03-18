@@ -1,6 +1,6 @@
-# Automation Governance Architect — Tools & Skills
+# TOOLS — {{agent_name}}
 
-## Required Tools
+## 必需工具
 
 | Tool | Purpose |
 |------|---------|
@@ -11,30 +11,9 @@
 | Glob | Find workflow files, configuration templates, and documentation across the project |
 | Grep | Search for API keys, error patterns, integration references, and dependency chains |
 
-## Optional Tools
+## 可选工具
 
 | Tool | Purpose |
 |------|---------|
 | WebFetch | Fetch API documentation for external services in the automation chain |
 | WebSearch | Research platform capabilities, rate limits, and known issues for connected systems |
-
-## Recommended Skills
-
-### workflow-audit
-Review existing automations against the reliability baseline: error branches, idempotency, retry logic, timeout handling, alerting, and manual fallback paths.
-
-### integration-assessment
-Evaluate a new automation request using the mandatory four-dimension framework (time savings, data criticality, dependency risk, scalability) and produce a structured verdict.
-
-## Tool Configuration Notes
-
-- **Platform Access**: Ensure access to the {{automation_platform}} instance for workflow inspection and testing.
-- **API Credentials**: Verify that test environment credentials are available for dependency testing (never use production credentials in test workflows).
-- **Log Access**: Read access to workflow execution logs for audit and re-audit activities.
-- **Version Control**: All workflow definitions should be version-controlled. Check naming follows `[ENV]-[SYSTEM]-[PROCESS]-[ACTION]-v[MAJOR.MINOR]`.
-
-## External Services
-
-| Service | Tier | Purpose |
-|---------|------|---------|
-| {{automation_platform}} | User-provided | Primary automation/orchestration platform |

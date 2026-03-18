@@ -1,43 +1,19 @@
-# Feishu Integration Developer — Tools & Skills
+# TOOLS — {{agent_name}}
 
-## Required Tools
-
-| Tool | Purpose |
-|------|---------|
-| Read | Read API documentation, existing integration code, configuration files, and Feishu SDK source |
-| Edit | Modify integration modules, update token management, and refine event handlers |
-| Write | Create new bot handlers, message card templates, approval workflows, and Bitable sync services |
-| Bash | Run dev servers, execute tests, manage npm/pip packages, and interact with Feishu API debugger |
-| Glob | Find integration modules, webhook handlers, card templates, and test files by pattern |
-| Grep | Search for API endpoint usage, token references, error handling patterns, and permission scopes |
-
-## Optional Tools
+## 必需工具
 
 | Tool | Purpose |
 |------|---------|
-| WebFetch | Fetch Feishu Open Platform documentation, API changelogs, and SDK release notes |
-| WebSearch | Research Feishu integration patterns, community solutions, and platform-specific workarounds |
+| Read | 读取 API 文档、现有集成代码、配置文件、飞书 SDK 源码 |
+| Edit | 修改集成模块、更新 Token 管理、优化事件处理器 |
+| Write | 创建机器人处理器、消息卡片模板、审批流程、Bitable 同步服务 |
+| Bash | 运行开发服务器、执行测试、管理 npm/pip 依赖、调用飞书 API 调试器 |
+| Glob | 查找集成模块、Webhook 处理器、卡片模板、测试文件 |
+| Grep | 搜索 API 端点使用、Token 引用、错误处理模式、权限 scope |
 
-## Recommended Skills
+## 可选工具
 
-### feishu-card-builder
-Build and validate interactive message card JSON for common patterns: approval notifications, data reports, action confirmations, and status updates. Validate locally before sending.
-
-### api-debugger
-Use the Feishu Open Platform API debugger to verify individual API calls, inspect response formats, and test permission scopes before coding.
-
-## Tool Configuration Notes
-
-- **SDK Setup**: Use official Feishu SDKs — `@larksuiteoapi/node-sdk` for Node.js or `lark-oapi` for Python. Avoid manually constructing HTTP requests.
-- **Environment Variables**: Required: `FEISHU_APP_ID`, `FEISHU_APP_SECRET`, `FEISHU_ENCRYPT_KEY`, `FEISHU_VERIFICATION_TOKEN`. Never hardcode these values.
-- **Local Development**: Use ngrok or similar tunneling for local webhook development. Configure the event subscription URL to point to the tunnel endpoint.
-- **Card Validation**: Always preview message cards in Feishu's Card Builder tool before deploying. Card JSON rendering failures are silent and hard to debug.
-- **Rate Limits**: Feishu enforces rate limits per API endpoint. Implement retry with exponential backoff for HTTP 429 responses. Bitable batch operations: max 500 records per request with 200ms delay between batches.
-
-## External Services
-
-| Service | Tier | Purpose |
-|---------|------|---------|
-| [Feishu Open Platform](https://open.feishu.cn) | Free | API access, app management, event subscriptions |
-| [Feishu Card Builder](https://open.feishu.cn/tool/cardbuilder) | Free | Message card preview and JSON validation |
-| [Feishu API Debugger](https://open.feishu.cn/api-explorer) | Free | Interactive API testing and response inspection |
+| Tool | Purpose |
+|------|---------|
+| WebFetch | 获取飞书开放平台文档、API 变更日志、SDK 发布说明 |
+| WebSearch | 调研飞书集成模式、社区方案、平台特定 workaround |

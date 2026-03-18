@@ -49,5 +49,15 @@
   "adapted_from": {
     "source": "agency-agents",
     "original": "sales/sales-sales-coach"
-  }
+  },
+  "onboarding": {
+    "questions": [
+      { "key": "sales_methodology", "ask": "团队使用什么销售方法论？（MEDDPICC / SPIN / Challenger / Sandler）", "required": true },
+      { "key": "crm_tool", "ask": "CRM 工具是什么？（Salesforce / HubSpot / Pipedrive）", "required": true },
+      { "key": "deal_cycle", "ask": "典型成交周期多长？（如 30-90 天企业级）", "required": false },
+      { "key": "target_market", "ask": "目标市场是什么？（SMB / 中型企业 / 大企业）", "required": false },
+      { "key": "team_context", "ask": "销售团队有多少人？工作方式如何？", "required": false }
+    ]
+  },
+  "tools_deny": ["Bash"]
 }

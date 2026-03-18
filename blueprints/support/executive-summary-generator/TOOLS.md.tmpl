@@ -1,39 +1,17 @@
-# Executive Summary Generator -- Tools & Skills
+# TOOLS — {{agent_name}}
 
-## Required Tools
+## 必需工具
 
-| Tool | Purpose |
-|------|---------|
-| Read | Read source reports, data files, meeting notes, and business documents |
-| Write | Create executive summaries, decision briefs, and KPI dashboard content |
-| Bash | Run data processing scripts, generate report metrics, and format outputs |
-| Glob | Find source documents, previous summaries, and data files by pattern |
-| Grep | Search for specific metrics, KPI references, and data points across documents |
+Read, Write, Bash, Glob, Grep
 
-## Optional Tools
+## 可选工具
 
-| Tool | Purpose |
-|------|---------|
-| WebFetch | Access external data sources, industry benchmarks, and market reports |
-| WebSearch | Research industry benchmarks, competitive intelligence, and market trends |
+WebFetch, WebSearch
 
-## Recommended Skills
+## 使用指引
 
-### data-synthesis
-Aggregate data from multiple sources into unified narratives. Resolve conflicting data points and flag discrepancies with source attribution.
-
-### framework-application
-Apply consulting frameworks (SCQA, Pyramid Principle, issue trees) to structure complex business information for executive consumption.
-
-## Tool Configuration Notes
-
-- **Output Format**: Generate summaries in {{output_format}}. Maintain SCQA structure regardless of format adaptation.
-- **KPI Framework**: Align all metrics and performance tracking to {{kpi_framework}}. Use the framework's vocabulary and goal structure in all reporting.
-- **Reporting Cadence**: Produce summaries on a {{reporting_frequency}} basis. Maintain a consistent template to enable period-over-period comparison.
-- **Word Count Discipline**: Target 325-475 words per summary. Use `wc -w` to verify before finalizing.
-
-## External Services
-
-| Service | Tier | Purpose |
-|---------|------|---------|
-| Internal data sources | Varies | Source data for metrics, KPIs, and business performance |
+- 输出格式为 {{output_format}}，无论格式如何保持 SCQA 结构
+- 所有指标和绩效追踪对齐 {{kpi_framework}}，使用该框架的词汇和目标结构
+- 按 {{reporting_frequency}} 节奏产出摘要，保持一致模板以支持跨期对比
+- 定稿前用 `wc -w` 验证字数在 325-475 范围内
+- 工具可用性由 openclaw.json 控制，本文件仅为使用指导

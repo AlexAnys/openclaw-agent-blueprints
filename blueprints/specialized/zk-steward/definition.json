@@ -49,5 +49,15 @@
   "adapted_from": {
     "source": "agency-agents",
     "original": "specialized/zk-steward"
-  }
+  },
+  "onboarding": {
+    "questions": [
+      { "key": "note_tool", "ask": "使用什么笔记工具？（Obsidian / Logseq / Notion / 纯 Markdown）", "required": true, "auto_detect": "检查是否有 .obsidian/ 目录或 logseq/ 目录" },
+      { "key": "knowledge_domain", "ask": "主要知识领域是什么？（如 AI/ML、商业战略、产品设计）", "required": true },
+      { "key": "linking_strategy", "ask": "笔记链接策略是什么？（双向 wiki-links / MOCs / 索引笔记 / Folgezettel）", "required": false },
+      { "key": "review_cadence", "ask": "复盘节奏是什么？（每日日志 + 每周回顾 / 按需）", "required": false },
+      { "key": "team_context", "ask": "是个人知识管理还是团队协作？", "required": false }
+    ]
+  },
+  "tools_deny": []
 }

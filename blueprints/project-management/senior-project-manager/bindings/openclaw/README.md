@@ -1,35 +1,12 @@
-# OpenClaw Binding — Senior Project Manager
+# OpenClaw Binding
 
-## Materialization
+For complete materialization and registration instructions, see [`ops-interface/INSTRUCTIONS.md`](../../../../ops-interface/INSTRUCTIONS.md).
 
-1. Copy the template files to your OpenClaw workspace:
-   ```bash
-   mkdir -p ~/.openclaw/workspace/agents/senior-project-manager/
-   cp SOUL.md.tmpl  ~/.openclaw/workspace/agents/senior-project-manager/SOUL.md
-   cp AGENTS.md.tmpl ~/.openclaw/workspace/agents/senior-project-manager/AGENTS.md
-   cp TOOLS.md.tmpl  ~/.openclaw/workspace/agents/senior-project-manager/TOOLS.md
-   ```
+## Quick Reference
 
-2. Resolve parameters in each file — replace all `{{variable}}` placeholders:
-   - `{{methodology}}` — e.g., "Agile (2-week sprints)"
-   - `{{project_tool}}` — e.g., "Linear"
-   - `{{team_size}}` — e.g., "5-person cross-functional team"
-   - `{{reporting_cadence}}` — e.g., "Weekly stakeholder update, daily standup"
-   - `{{team_context}}` — e.g., "Product development team, hybrid remote"
+1. Copy `*.md.tmpl` from the blueprint root to your workspace (`~/.openclaw/workspace-{agentId}/`)
+2. Rename `.tmpl` → `.md` and resolve all `{{variable}}` placeholders
+3. Register in `openclaw.json` (`agents.list` + `bindings`)
+4. Restart Gateway and test
 
-3. Register in `openclaw.json`:
-   ```json
-   {
-     "agents": {
-       "list": [
-         {
-           "id": "senior-project-manager",
-           "name": "Senior Project Manager",
-           "description": "Project management — spec-to-task conversion, scope management, risk mitigation, stakeholder communication"
-         }
-       ]
-     }
-   }
-   ```
-
-4. Verify: `openclaw chat --agent senior-project-manager`
+Parameters and onboarding questions are defined in `definition.json`.

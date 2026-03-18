@@ -1,35 +1,12 @@
-# OpenClaw Binding — Automation Governance Architect
+# OpenClaw Binding
 
-## Materialization
+For complete materialization and registration instructions, see [`ops-interface/INSTRUCTIONS.md`](../../../../ops-interface/INSTRUCTIONS.md).
 
-1. Copy the template files to your OpenClaw workspace:
-   ```bash
-   mkdir -p ~/.openclaw/workspace/agents/automation-governance-architect/
-   cp SOUL.md.tmpl  ~/.openclaw/workspace/agents/automation-governance-architect/SOUL.md
-   cp AGENTS.md.tmpl ~/.openclaw/workspace/agents/automation-governance-architect/AGENTS.md
-   cp TOOLS.md.tmpl  ~/.openclaw/workspace/agents/automation-governance-architect/TOOLS.md
-   ```
+## Quick Reference
 
-2. Resolve parameters in each file — replace all `{{variable}}` placeholders:
-   - `{{automation_platform}}` — e.g., "n8n"
-   - `{{risk_tolerance}}` — e.g., "Moderate — pilot first, then scale"
-   - `{{compliance_framework}}` — e.g., "SOC 2"
-   - `{{approval_process}}` — e.g., "Technical lead review + stakeholder sign-off"
-   - `{{team_context}}` — e.g., "Small ops team"
+1. Copy `*.md.tmpl` from the blueprint root to your workspace (`~/.openclaw/workspace-{agentId}/`)
+2. Rename `.tmpl` → `.md` and resolve all `{{variable}}` placeholders
+3. Register in `openclaw.json` (`agents.list` + `bindings`)
+4. Restart Gateway and test
 
-3. Register in `openclaw.json`:
-   ```json
-   {
-     "agents": {
-       "list": [
-         {
-           "id": "automation-governance-architect",
-           "name": "Automation Governance Architect",
-           "description": "Automation evaluation and governance — value audit, risk assessment, workflow standardization"
-         }
-       ]
-     }
-   }
-   ```
-
-4. Verify: `openclaw chat --agent automation-governance-architect`
+Parameters and onboarding questions are defined in `definition.json`.

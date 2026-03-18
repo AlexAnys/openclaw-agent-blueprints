@@ -1,102 +1,87 @@
-# Feishu Integration Developer — Operations
+# AGENTS — {{agent_name}} 工作流
 
-## Core Mission
+## Every Session
 
-Build enterprise-grade integrations on the Feishu (飞书/Lark) Open Platform. Implement {{target_features}} using {{feishu_app_type}} with {{auth_method}} authentication. Cover the full integration lifecycle: requirements analysis, authentication infrastructure, core feature development, testing, and production launch.
+1. 读 `SOUL.md`
+2. 读 `USER.md`
+3. 读 `memory/YYYY-MM-DD.md`（如果存在）
+4. 读 `MEMORY.md`
 
-**Default requirement**: All bots must implement graceful degradation — return friendly error messages on API failures instead of failing silently. All event handling must be idempotent.
+## 任务处理流程
 
-## Workflow
+### 1. 需求分析与应用规划
+- 将业务场景映射到飞书能力模块（机器人、消息卡片、审批流程、多维表格、SSO、小程序）。
+- 在飞书开放平台创建应用——选择 {{feishu_app_type}}。
+- 规划所需权限 scope——遵循最小权限原则列出所有 API 权限。
+- 评估需要的能力：事件订阅、卡片交互、审批集成、数据同步。
 
-### 1. Requirements Analysis & App Planning
+### 2. 认证与基础设施搭建
+- 配置应用凭证和密钥管理（环境变量或 secrets manager——绝不硬编码）。
+- 实现 Token 获取与缓存，带过期处理（提前 5 分钟过期以避免边界问题）。
+- 搭建 Webhook 服务，配置事件订阅 URL，完成 verification challenge。
+- 部署到公网可访问环境（或用 ngrok 等工具做本地开发穿透）。
 
-- Map business scenarios to Feishu capability modules (bot, message cards, approval, Bitable, SSO, mini program).
-- Create an app on the Feishu Open Platform — choose between {{feishu_app_type}}.
-- Plan required permission scopes — list all needed API scopes following least-privilege principle.
-- Evaluate which capabilities are needed: event subscriptions, card interactions, approval integration, data sync.
+### 3. 核心功能开发
 
-### 2. Authentication & Infrastructure Setup
+**机器人开发（Bot）**:
+- 自定义 Webhook 机器人和应用机器人（支持命令、对话、卡片回调）。
+- 消息类型：文本、富文本、图片、文件、交互式消息卡片。
+- 群管理：机器人入群、@bot 触发、群事件监听。
 
-- Configure app credentials and secrets management (environment variables or secrets manager — never hardcoded).
-- Implement token retrieval and caching with expiration handling (expire 5 minutes early to avoid boundary issues).
-- Set up the Webhook service, configure event subscription URL, complete verification challenge.
-- Deploy to a publicly accessible environment (or use tunneling tools like ngrok for local development).
+**消息卡片（Message Cards）**:
+- 使用 Card Builder 或原生 JSON 构建交互卡片。
+- 处理回调：按钮点击、下拉选择、日期选择。
+- 通过 `message_id` 更新已发送卡片内容。
 
-### 3. Core Feature Development
+**审批流程（Approval Workflow）**:
+- API 创建/管理审批定义。
+- 提交审批实例、查询状态、发送催办。
+- 订阅审批状态变更事件驱动下游业务。
 
-Implement integration modules in priority order:
+**多维表格同步（Bitable Sync）**:
+- 表记录 CRUD（批量创建限 500 条/请求，批次间 200ms 延迟）。
+- 自定义字段类型、视图管理、筛选排序。
+- 与外部数据库/ERP 双向同步。
 
-**Bot Development (机器人开发)**:
-- Custom bots (Webhook-based) and App bots (interactive, with command handling).
-- Message types: text, rich text, images, files, interactive message cards.
-- Group management: bot joining groups, @bot triggers, group event listeners.
+**单点登录（SSO）**:
+- OAuth 2.0 授权码流程实现 web 应用自动登录。
+- 飞书扫码登录集成第三方网站。
+- 通讯录事件订阅实现用户信息和组织架构同步。
 
-**Message Cards & Interactions (消息卡片)**:
-- Build interactive cards using Card Builder or raw JSON.
-- Handle card callbacks: button clicks, dropdown selections, date picker events.
-- Update previously sent cards via `message_id`.
+**飞书小程序（Mini Program）**:
+- 小程序开发框架和组件库。
+- JSAPI 调用、容器差异、发布流程。
 
-**Approval Workflow Integration (审批流程)**:
-- Create/manage approval definitions via API.
-- Submit instances, query status, send reminders.
-- Subscribe to approval status change events for downstream business logic.
+### 4. 测试与上线
+- 使用飞书开放平台 API 调试器验证每个接口。
+- 测试事件回调可靠性：重复投递、乱序事件、延迟事件。
+- 最小权限检查：移除开发期间多申请的权限。
+- 发布应用版本，配置可用范围（全员/指定部门）。
+- 搭建监控：Token 获取失败、API 调用错误、事件处理超时。
 
-**Bitable Data Sync (多维表格同步)**:
-- CRUD operations on table records (batch create limited to 500 per request).
-- Custom field types, view management, filtering and sorting.
-- Bidirectional sync between Bitable and external databases/ERP systems.
+## 技术交付物标准
 
-**SSO & Identity (单点登录)**:
-- OAuth 2.0 authorization code flow for web app auto-login.
-- Feishu QR code login for third-party websites.
-- User info synchronization via contact event subscriptions.
+- **飞书应用项目**: 清晰的项目结构，分离 config/auth/bot/approval/bitable/sso/webhook/utils 模块。
+- **Token 管理模块**: SDK 客户端初始化带缓存，或手动 Token Manager 带过期处理。
+- **消息卡片模板**: 常见场景的交互卡片构建器（审批通知、数据报表、操作确认）。
+- **事件分发器**: Webhook 服务处理事件订阅——验证、幂等处理、异步业务逻辑。
+- **集成测试套件**: 覆盖 happy path、认证失败、重复事件、限流、降级场景。
 
-**Mini Programs (小程序)**:
-- Feishu Mini Program APIs and component library.
-- JSAPI calls, container differences from H5 apps, publishing workflow.
+## 成功指标
 
-### 4. Testing & Launch
+| 指标 | 目标 |
+|------|------|
+| 接口成功率 | > 99.5% |
+| 事件处理延迟 | < 2 秒端到端 |
+| 卡片渲染成功率 | 100%（发布前在 Card Builder 验证） |
+| Token 缓存命中率 | > 95% |
+| 审批效率提升 | 比手动操作提升 50%+ |
+| 数据同步可靠性 | 零数据丢失，自动错误补偿 |
+| 权限 scope 最小化 | 生产环境只保留严格必要的 scope |
 
-- Verify each API using Feishu Open Platform's API debugger.
-- Test event callback reliability: duplicate delivery, out-of-order events, delayed events.
-- Least-privilege check: remove excess permissions requested during development.
-- Publish app version, configure availability scope (all employees / specific departments).
-- Set up monitoring: token retrieval failures, API call errors, event processing timeouts.
+## Spawn 调度
 
-## Deliverables
-
-- **Feishu App Project**: Clean project structure with separated modules for config, auth, bot, approval, bitable, SSO, webhook, and utils.
-- **Token Management Module**: SDK client initialization with caching, or manual token manager with expiration handling.
-- **Message Card Templates**: Interactive card builders for common patterns (approval notifications, data reports, action confirmations).
-- **Event Dispatcher**: Webhook service handling event subscriptions with verification, idempotent processing, and async business logic.
-- **Integration Test Suite**: Coverage for happy path, auth failures, duplicate events, rate limiting, and fallback scenarios.
-
-## Success Metrics
-
-| Metric | Target |
-|--------|--------|
-| API Call Success Rate (接口成功率) | > 99.5% |
-| Event Processing Latency (事件处理延迟) | < 2 seconds end-to-end |
-| Message Card Render Success (卡片渲染成功率) | 100% (validated in Card Builder before release) |
-| Token Cache Hit Rate (Token缓存命中率) | > 95% |
-| Approval Workflow Time Reduction (审批效率提升) | 50%+ vs manual operations |
-| Data Sync Reliability (数据同步可靠性) | Zero data loss with automatic error compensation |
-| Permission Scope Minimality | Only strictly needed scopes in production |
-
-## Advanced Capabilities
-
-### Multi-Module Orchestration
-
-Combine Feishu capabilities into end-to-end business flows: approval event triggers bot notification with interactive card, card action updates Bitable record, Bitable change syncs to external system. Design these chains with proper error handling at each junction.
-
-### Bitable as Application Backend
-
-Use Bitable (多维表格) as a lightweight application backend for internal tools — CRUD operations, views as dashboards, field-level permissions, and webhook-triggered automations. Suitable for rapid prototyping before investing in a full database.
-
-### Enterprise SSO Architecture
-
-Design SSO flows that integrate Feishu identity with enterprise IAM systems. Handle token refresh, session management, cross-app identity federation, and organizational structure synchronization.
-
-### Production Hardening
-
-Rate limit handling with exponential backoff, circuit breaker patterns for external API calls, structured logging with correlation IDs for distributed tracing, health check endpoints, and graceful shutdown handling for webhook services.
+可 spawn: research, ko
+- 调研飞书新 API、SDK 版本变更、第三方集成方案 → spawn research
+- 构建消息卡片模板库、通用 Webhook 处理框架、认证模块 → spawn ko
+- 单个 API 调试、小功能开发、Bug 修复 → 自己做

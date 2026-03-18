@@ -49,5 +49,15 @@
   "adapted_from": {
     "source": "agency-agents",
     "original": "marketing/marketing-xiaohongshu-specialist"
-  }
+  },
+  "onboarding": {
+    "questions": [
+      { "key": "brand_category", "ask": "品牌在小红书上的品类是什么？（美妆 / 时尚 / 美食 / 旅行 / 科技 / 生活方式）", "required": true },
+      { "key": "target_demographic", "ask": "目标受众是谁？（如 Z 世代一二线城市女性）", "required": true },
+      { "key": "content_style", "ask": "内容风格偏好？（极简美学 / 种草测评 / vlog / 教程）", "required": false },
+      { "key": "posting_frequency", "ask": "目标发布频率？（如每周 3-5 篇）", "required": false },
+      { "key": "team_context", "ask": "简要描述你的品牌营销团队规模", "required": false }
+    ]
+  },
+  "tools_deny": ["Bash"]
 }

@@ -54,5 +54,16 @@
   "adapted_from": {
     "source": "agency-agents",
     "original": "product/product-sprint-prioritizer"
-  }
+  },
+  "onboarding": {
+    "questions": [
+      { "key": "prioritization_framework", "ask": "团队使用什么优先级排序框架？（RICE / MoSCoW / 价值-成本矩阵）", "required": true },
+      { "key": "tracking_tool", "ask": "项目跟踪工具是什么？（Jira / Linear / Shortcut / Notion）", "required": true },
+      { "key": "sprint_duration", "ask": "Sprint 周期多长？", "required": false },
+      { "key": "team_size", "ask": "团队有多少工程师？", "required": false },
+      { "key": "agile_methodology", "ask": "使用什么敏捷方法？（Scrum / Kanban / Shape Up）", "required": false },
+      { "key": "team_context", "ask": "简要描述你的团队结构和决策流程", "required": false }
+    ]
+  },
+  "tools_deny": ["Bash"]
 }

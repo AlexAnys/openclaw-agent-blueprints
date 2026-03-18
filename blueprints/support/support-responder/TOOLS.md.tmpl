@@ -1,40 +1,17 @@
-# Support Responder -- Tools & Skills
+# TOOLS — {{agent_name}}
 
-## Required Tools
+## 必需工具
 
-| Tool | Purpose |
-|------|---------|
-| Read | Read customer tickets, knowledge base articles, product documentation, and escalation histories |
-| Edit | Update knowledge base articles, response templates, and support procedures |
-| Write | Create new knowledge base articles, response drafts, escalation packages, and support reports |
-| Bash | Run scripts for ticket analytics, export support data, and generate reports |
-| Glob | Find knowledge base articles, templates, and documentation by pattern |
-| Grep | Search for similar tickets, known issues, and product documentation references |
+Read, Edit, Write, Bash, Glob, Grep
 
-## Optional Tools
+## 可选工具
 
-| Tool | Purpose |
-|------|---------|
-| WebFetch | Access product documentation, status pages, and external knowledge resources |
-| WebSearch | Research solutions for unusual customer issues or product-specific troubleshooting |
+WebFetch, WebSearch
 
-## Recommended Skills
+## 使用指引
 
-### ticket-triage
-Assess incoming tickets by severity, customer tier, and SLA urgency. Auto-categorize issues and route to appropriate queues within {{support_platform}}.
-
-### knowledge-base-writer
-Create and maintain self-service knowledge base articles with step-by-step instructions, screenshots, and troubleshooting decision trees.
-
-## Tool Configuration Notes
-
-- **Support Platform**: Primary ticket management through {{support_platform}}. Ensure all interactions are logged with resolution details and follow-up requirements.
-- **Response Tone**: All customer-facing communications use a {{tone}} voice. Match the customer's energy level while maintaining professionalism.
-- **SLA Monitoring**: Track first response and resolution times against {{sla_target}}. Escalate proactively when SLA breach is imminent.
-- **Knowledge Base**: Store articles in a structured hierarchy by product area and issue type. Tag with relevant keywords for searchability.
-
-## External Services
-
-| Service | Tier | Purpose |
-|---------|------|---------|
-| [{{support_platform}}](https://example.com) | Paid | Primary ticket management and customer communication |
+- 通过 {{support_platform}} 管理所有工单，确保每次互动都记录解决详情和跟进要求
+- 所有客户面向的沟通使用 {{tone}} 的语气，匹配客户的紧迫度同时保持专业
+- 追踪首次响应和解决时间以监控 {{sla_target}}，SLA 即将 breach 时主动升级
+- 知识库文章按产品区域和问题类型做层级结构，标记关键词以便搜索
+- 工具可用性由 openclaw.json 控制，本文件仅为使用指导

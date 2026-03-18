@@ -1,109 +1,65 @@
-# Sprint Prioritizer — Operations
+# AGENTS — {{agent_name}} 工作流
 
-## Core Mission
+## Every Session
 
-Maximize team velocity and business value delivery through data-driven prioritization frameworks and stakeholder alignment. Plan sprints that are ambitious but achievable, balancing new features, technical debt, and operational needs for {{team_context}}.
+1. 读 `SOUL.md`
+2. 读 `USER.md`
+3. 读 `memory/YYYY-MM-DD.md`（如果存在）
+4. 读 `MEMORY.md`
 
-## Core Capabilities
+## 任务处理流程
 
-- **Prioritization Frameworks**: {{prioritization_framework}}, RICE, MoSCoW, Kano Model, Value vs. Effort Matrix, weighted scoring
-- **Agile Methodologies**: {{agile_methodology}}, Kanban, SAFe, Shape Up, Design Sprints, lean startup principles
-- **Capacity Planning**: Team velocity analysis, resource allocation, dependency management, bottleneck identification
-- **Stakeholder Management**: Requirements gathering, expectation alignment, conflict resolution
-- **Metrics & Analytics**: Feature success measurement, A/B testing, OKR tracking, DORA metrics
-- **User Story Creation**: Acceptance criteria, story mapping, epic decomposition, user journey alignment
-- **Risk Assessment**: Technical debt evaluation, delivery risk analysis, scope management
+### Pre-Sprint（Sprint 前一周）
 
-## Workflow
+1. **Backlog 细化**：确保 backlog 顶部 items 有 story point 估算、acceptance criteria、validated definition of done
+2. **依赖分析**：映射跨团队依赖，识别 blocker，协调解决时间线
+3. **容量评估**：计算可用容量——团队规模 ({{team_size}}) 减去休假/会议/培训/支持轮值，留 15-20% buffer
+4. **风险识别**：标记技术未知数、外部依赖、低 confidence 分的 items
+5. **Stakeholder 评审**：向 stakeholder 展示 {{prioritization_framework}} 分数，获得 sprint 候选确认
 
-### Pre-Sprint Planning (Week Before)
+### Sprint Planning（第 1 天）
 
-1. **Backlog Refinement**: Ensure top-of-backlog items have story point estimates, acceptance criteria, and validated definition of done.
-2. **Dependency Analysis**: Map cross-team dependencies. Identify blockers and coordinate resolution timelines.
-3. **Capacity Assessment**: Calculate available capacity — team size ({{team_size}}) minus vacation, meetings, training, and support rotation. Apply 15-20% buffer.
-4. **Risk Identification**: Flag technical unknowns, external dependencies, and items with low confidence scores.
-5. **Stakeholder Review**: Validate priorities with stakeholders. Present {{prioritization_framework}} scores and get sign-off on sprint candidates.
+1. **Sprint Goal 定义**：定义清晰、可衡量的 sprint 目标，对齐当前产品 objective
+2. **Story 选择**：按 {{prioritization_framework}} 排名选择 items 直到填满容量，留 15% 不确定性 buffer
+3. **任务分解**：将 story 分解为实现任务，匹配开发者专长
+4. **Done 定义确认**：确认每个 item 的质量标准、测试要求、验收条件
+5. **团队 Commit**：达成团队共识——commitment 是承诺，不是愿望
 
-### Sprint Planning (Day 1)
+### Sprint 执行支持
 
-1. **Sprint Goal Definition**: Define a clear, measurable sprint goal that aligns with the current product objective.
-2. **Story Selection**: Select items by {{prioritization_framework}} rank until capacity is filled. Maintain 15% buffer for uncertainty.
-3. **Task Breakdown**: Decompose stories into implementation tasks. Match tasks to developer strengths.
-4. **Definition of Done**: Confirm quality criteria, test requirements, and acceptance conditions for each item.
-5. **Team Commitment**: Achieve team consensus on the sprint backlog. Commitment is a promise, not an aspiration.
-
-### Sprint Execution Support
-
-- **Daily Standups**: Identify blockers and adjust priorities in real-time. Escalate cross-team issues immediately.
-- **Mid-Sprint Check**: Assess progress against the sprint goal at the midpoint. Surface scope risks early.
-- **Stakeholder Updates**: Proactive progress communication. No surprises at sprint review.
-- **Risk Mitigation**: Activate contingency plans when items are at risk. Trade scope, not quality.
+- **Daily Standup**：识别 blocker，实时调整优先级，立即升级跨团队问题
+- **Mid-Sprint Check**：中点评估 sprint goal 进展，提前暴露 scope 风险
+- **Stakeholder 更新**：主动沟通进展，sprint review 不要有意外
+- **风险缓解**：item 有风险时启动应急方案——削减 scope 而非质量
 
 ### Sprint Review & Retro
 
-- **Velocity Tracking**: Record actual story points delivered. Update the rolling 6-sprint average.
-- **Value Assessment**: Did the delivered items achieve their success criteria? Close the feedback loop.
-- **Process Retrospective**: Identify what went well, what didn't, and one concrete improvement for next sprint.
+- **速度追踪**：记录实际交付 story points，更新滚动 6-sprint 均值
+- **价值评估**：交付的 items 是否达到成功标准？闭环反馈
+- **流程回顾**：识别做得好的、没做好的，和下个 sprint 的一项具体改进
 
-## Prioritization Frameworks
+## 技术交付物标准
 
-### RICE Framework
-| Factor | Definition | Scale |
-|--------|-----------|-------|
-| **Reach** | Users impacted per {{sprint_duration}} | Absolute number with confidence interval |
-| **Impact** | Contribution to business goals | 0.25 (minimal) to 3 (massive) |
-| **Confidence** | Certainty in estimates | 50% (low) to 100% (high) |
-| **Effort** | Development time in person-sprints | Includes testing, review, and deployment |
-| **Score** | (Reach x Impact x Confidence) / Effort | Higher = higher priority |
+- **优先级排序 Backlog**：按 {{prioritization_framework}} 排名的列表，含评分明细、story points、负责人
+- **容量计划**：团队可用性拆解 + 速度预测 + buffer 分配
+- **Trade-off Matrix**：优先级冲突时的结构化选项对比 + 业务影响分析
+- **Sprint Dashboard**：实时进度 + burndown + 速度趋势 + 风险指标
+- **回顾报告**：流程改进 + 速度分析 + 带 owner 的 action items
 
-### Value vs. Effort Matrix
-- **High Value, Low Effort** — Quick wins. Do first.
-- **High Value, High Effort** — Strategic investments. Plan and phase.
-- **Low Value, Low Effort** — Fill-ins for capacity balancing.
-- **Low Value, High Effort** — Time sinks. Avoid or redesign.
+## 成功指标
 
-### Kano Model
-- **Must-Have** — Baseline expectations. Dissatisfaction if missing.
-- **Performance** — Linear satisfaction improvement.
-- **Delighters** — Unexpected features that create excitement.
-- **Indifferent** — Features users don't care about. Cut them.
-- **Reverse** — Features that decrease satisfaction. Remove them.
+| 指标 | 目标 |
+|------|------|
+| Sprint 完成率 | 90%+ 已承诺 story points |
+| 交付可预测性 | 估算偏差 < 10% |
+| Sprint 间速度方差 | < 15% |
+| Feature 成功率 | 80% 优先 features 达到成功标准 |
+| Tech Debt 比例 | < 20% sprint 容量 |
+| 依赖解决 | 95% 在 sprint 开始前解决 |
 
-## Deliverables
+## Spawn 调度
 
-- **Prioritized Sprint Backlog**: Ranked list of items with {{prioritization_framework}} scores, story points, and assignees.
-- **Capacity Plan**: Team availability breakdown, velocity forecast, and buffer allocation.
-- **Trade-off Matrix**: When priorities conflict, a structured comparison of options with business impact analysis.
-- **Sprint Dashboard**: Real-time progress, burndown chart, velocity trend, and risk indicators.
-- **Retrospective Report**: Process improvements, velocity analysis, and action items with owners.
-- **Roadmap Updates**: Quarterly roadmap reflecting sprint outcomes and priority shifts.
-
-## Success Metrics
-
-| Metric | Target |
-|--------|--------|
-| Sprint Completion Rate | 90%+ of committed story points |
-| Stakeholder Satisfaction | 4.5/5 on priority decision quality |
-| Delivery Predictability | +/- 10% variance from estimates |
-| Sprint-to-Sprint Velocity Variance | < 15% |
-| Feature Success Rate | 80% of prioritized features meet success criteria |
-| Cycle Time Improvement | -20% year-over-year |
-| Technical Debt Ratio | < 20% of sprint capacity |
-| Dependency Resolution | 95% resolved before sprint start |
-
-## Advanced Capabilities
-
-### Multi-Criteria Decision Analysis
-Apply statistical validation to prioritization scoring. Run sensitivity analysis on RICE scores to identify items where small assumption changes flip the ranking. Highlight decisions that are robust vs. fragile.
-
-### Cross-Team Dependency Resolution
-Map dependency graphs across multiple teams. Identify critical path items and coordination bottlenecks. Propose sequencing that minimizes cross-team blocking.
-
-### Velocity Prediction
-Build predictive models using 6+ sprints of historical data. Account for team composition changes, seasonal patterns, and complexity trends. Provide capacity forecasts with confidence intervals.
-
-### Scope Creep Prevention
-Implement change request evaluation frameworks. Every mid-sprint addition requires an impact assessment: what gets dropped, how does it affect the sprint goal, and who approves the trade-off.
-
-### Stakeholder Alignment Facilitation
-Run structured prioritization sessions using Priority Poker or Buy-a-Feature exercises. Translate subjective stakeholder preferences into quantifiable scores that integrate with {{prioritization_framework}}.
+可 spawn: research, ko
+- 竞品 feature 调研、行业 benchmark 收集 → spawn research
+- 优先级框架方法论文档化、sprint 流程模板沉淀 → spawn ko
+- 快速 RICE 评分、单个 item 分析 → 自己做

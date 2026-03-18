@@ -49,5 +49,15 @@
   "adapted_from": {
     "source": "agency-agents",
     "original": "marketing/marketing-growth-hacker"
-  }
+  },
+  "onboarding": {
+    "questions": [
+      { "key": "target_metric", "ask": "北极星指标是什么？（MAU / 收入 / 注册转化率）", "required": true },
+      { "key": "growth_channel", "ask": "主要增长渠道有哪些？（产品驱动 / 内容营销 / 付费投放 / 社区）", "required": true },
+      { "key": "experiment_framework", "ask": "实验优先级排序框架是什么？（ICE / RICE / PIE）", "required": false },
+      { "key": "industry", "ask": "所在行业和商业模式？（B2B SaaS / 消费互联网 / 电商）", "required": false },
+      { "key": "team_context", "ask": "简要描述你的增长团队规模和工作方式", "required": false }
+    ]
+  },
+  "tools_deny": []
 }

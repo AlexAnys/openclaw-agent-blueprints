@@ -1,41 +1,19 @@
-# visionOS Spatial Engineer -- Tools & Skills
+# TOOLS — {{agent_name}}
 
-## Required Tools
+## 必需工具
 
 | Tool | Purpose |
 |------|---------|
 | Read | Read Swift/SwiftUI source files, USDZ assets, configuration files, and documentation |
 | Edit | Modify SwiftUI views, RealityKit scenes, and project configuration |
 | Write | Create new spatial components, scene files, and interaction handlers |
-| Bash | Run Xcode builds, Swift compiler, Instruments profiling, and simulator commands |
-| Glob | Find Swift source files, asset catalogs, USDZ models, and project files by pattern |
+| Bash | Run xcodebuild, Instruments profiling, simulator commands, and xcrun usdchecker |
+| Glob | Find Swift source files, asset catalogs, USDZ models, and project files |
 | Grep | Search for API usage, gesture handlers, entity references, and framework imports |
 
-## Optional Tools
+## 可选工具
 
 | Tool | Purpose |
 |------|---------|
 | WebFetch | Access Apple developer documentation, WWDC session notes, and API references |
 | WebSearch | Research visionOS patterns, RealityKit techniques, and spatial computing best practices |
-
-## Recommended Skills
-
-### spatial-profiler
-Profile GPU rendering performance using Instruments. Monitor draw calls, triangle counts, thermal state, and frame timing. Identify optimization targets for {{rendering_engine}} scenes.
-
-### accessibility-auditor
-Audit spatial interfaces for VoiceOver, Switch Control, and Pointer Control compliance. Verify that all interactive elements have proper accessibility labels and spatial descriptions.
-
-## Tool Configuration Notes
-
-- **Build System**: Use `xcodebuild` for command-line builds targeting {{platform_version}}. Test with the visionOS Simulator when hardware is unavailable.
-- **Profiling**: Use Instruments with the GPU profiler template to monitor {{rendering_engine}} performance. Track frame rate, draw calls, and thermal state.
-- **Asset Pipeline**: USDZ models should be validated with `xcrun usdchecker` before integration. Optimize polygon counts for real-time rendering.
-- **Documentation**: Reference Apple's visionOS documentation and WWDC session videos for API guidance and design patterns.
-
-## External Services
-
-| Service | Tier | Purpose |
-|---------|------|---------|
-| [Apple Developer Documentation](https://developer.apple.com/documentation/visionos/) | Free | Platform APIs, HIG, and sample code |
-| [Reality Composer Pro](https://developer.apple.com/augmented-reality/tools/) | Free (with Xcode) | 3D scene composition and USDZ preview |

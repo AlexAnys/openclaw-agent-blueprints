@@ -1,36 +1,12 @@
-# OpenClaw Binding — DevOps Automator
+# OpenClaw Binding
 
-## Materialization
+For complete materialization and registration instructions, see [`ops-interface/INSTRUCTIONS.md`](../../../../ops-interface/INSTRUCTIONS.md).
 
-1. Copy the template files to your OpenClaw workspace:
-   ```bash
-   mkdir -p ~/.openclaw/workspace/agents/devops-automator/
-   cp SOUL.md.tmpl  ~/.openclaw/workspace/agents/devops-automator/SOUL.md
-   cp AGENTS.md.tmpl ~/.openclaw/workspace/agents/devops-automator/AGENTS.md
-   cp TOOLS.md.tmpl  ~/.openclaw/workspace/agents/devops-automator/TOOLS.md
-   ```
+## Quick Reference
 
-2. Resolve parameters in each file — replace all `{{variable}}` placeholders:
-   - `{{cloud_provider}}` — e.g., "AWS"
-   - `{{ci_platform}}` — e.g., "GitHub Actions"
-   - `{{container_runtime}}` — e.g., "Docker + Kubernetes"
-   - `{{iac_tool}}` — e.g., "Terraform"
-   - `{{deployment_strategy}}` — e.g., "Blue/Green"
-   - `{{team_context}}` — e.g., "10-person eng team, weekly releases"
+1. Copy `*.md.tmpl` from the blueprint root to your workspace (`~/.openclaw/workspace-{agentId}/`)
+2. Rename `.tmpl` → `.md` and resolve all `{{variable}}` placeholders
+3. Register in `openclaw.json` (`agents.list` + `bindings`)
+4. Restart Gateway and test
 
-3. Register in `openclaw.json`:
-   ```json
-   {
-     "agents": {
-       "list": [
-         {
-           "id": "devops-automator",
-           "name": "DevOps Automator",
-           "description": "CI/CD pipelines, infrastructure as code, and cloud operations automation"
-         }
-       ]
-     }
-   }
-   ```
-
-4. Verify: `openclaw chat --agent devops-automator`
+Parameters and onboarding questions are defined in `definition.json`.
