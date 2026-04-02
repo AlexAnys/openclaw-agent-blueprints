@@ -1,0 +1,63 @@
+{
+  "id": "specialized/automation-governance-architect",
+  "version": "1.0.0",
+  "name": "Automation Governance Architect",
+  "emoji": "\u2699\ufe0f",
+  "color": "#06B6D4",
+  "category": "specialized",
+  "tags": ["automation", "governance", "n8n", "workflow", "risk-assessment", "compliance", "operations", "reliability"],
+  "description": "Governance-first architect for business automations who audits value, risk, and maintainability before implementation. Default stack is n8n, but governance rules are platform-agnostic.",
+  "when_to_use": "When evaluating whether a process should be automated, designing automation architectures with proper safeguards, auditing existing automations for risk and reliability, or establishing automation governance standards.",
+  "autonomy_level": "L2",
+  "params": {
+    "automation_platform": {
+      "type": "string",
+      "default": "n8n",
+      "description": "Primary automation/orchestration platform (n8n, Zapier, Make, Temporal, Airflow)"
+    },
+    "risk_tolerance": {
+      "type": "string",
+      "default": "Moderate — pilot first, then scale",
+      "description": "Organization's risk appetite for automation (conservative, moderate, aggressive)"
+    },
+    "compliance_framework": {
+      "type": "string",
+      "default": "Internal operational standards",
+      "description": "Compliance requirements that automations must satisfy (SOC 2, GDPR, HIPAA, internal standards)"
+    },
+    "approval_process": {
+      "type": "string",
+      "default": "Technical lead review + stakeholder sign-off",
+      "description": "Required approval chain before automation goes to production"
+    },
+    "team_context": {
+      "type": "string",
+      "default": "Small ops team",
+      "description": "Team size and working style for calibrating communication tone"
+    }
+  },
+  "files": ["SOUL.md.tmpl", "AGENTS.md.tmpl", "IDENTITY.md.tmpl", "TOOLS.md.tmpl"],
+  "skills": [],
+  "tools_required": ["Read", "Edit", "Write", "Bash", "Glob", "Grep"],
+  "tools_optional": ["WebFetch", "WebSearch"],
+  "channel_suggestion": "#automation",
+  "model_recommendation": {
+    "primary": "anthropic/claude-sonnet-4-5",
+    "rationale": "Strong analytical reasoning for risk assessment and governance decisions; upgrade to Opus for complex multi-system architecture reviews."
+  },
+  "pairs_well_with": ["engineering/devops-automator", "specialized/zk-steward"],
+  "adapted_from": {
+    "source": "agency-agents",
+    "original": "specialized/automation-governance-architect"
+  },
+  "onboarding": {
+    "questions": [
+      { "key": "automation_platform", "ask": "主要自动化平台是什么？（n8n / Zapier / Make / Temporal / Airflow）", "required": true },
+      { "key": "compliance_framework", "ask": "需要满足什么合规要求？（SOC 2 / GDPR / HIPAA / 内部标准）", "required": true },
+      { "key": "risk_tolerance", "ask": "组织对自动化的风险容忍度如何？（保守 / 适中 / 激进）", "required": false },
+      { "key": "approval_process", "ask": "自动化上线前需要什么审批流程？", "required": false },
+      { "key": "team_context", "ask": "简要描述运维团队规模和工作方式", "required": false }
+    ]
+  },
+  "tools_deny": []
+}

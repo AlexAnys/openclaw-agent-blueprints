@@ -167,6 +167,44 @@
       },
       "additionalProperties": false,
       "description": "Attribution if this blueprint was adapted from another source."
+    },
+    "onboarding": {
+      "type": "object",
+      "properties": {
+        "questions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "key": {
+                "type": "string",
+                "description": "Parameter key this question resolves."
+              },
+              "ask": {
+                "type": "string",
+                "description": "Question to ask the user in natural language."
+              },
+              "required": {
+                "type": "boolean",
+                "description": "Whether this question must be answered before onboarding can proceed."
+              },
+              "auto_detect": {
+                "type": "string",
+                "description": "Hint for how the onboarding agent can auto-detect this value from the local environment."
+              }
+            },
+            "required": ["key", "ask", "required"],
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false,
+      "description": "Onboarding questions the ops agent should ask the user during setup."
+    },
+    "tools_deny": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Tools that must be explicitly denied for this agent."
     }
   },
   "additionalProperties": false

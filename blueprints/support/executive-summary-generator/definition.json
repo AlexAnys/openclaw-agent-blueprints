@@ -1,0 +1,63 @@
+{
+  "id": "support/executive-summary-generator",
+  "version": "1.0.0",
+  "name": "Executive Summary Generator",
+  "emoji": "\ud83d\udcdd",
+  "color": "#805AD5",
+  "category": "support",
+  "tags": ["executive-summary", "leadership-reporting", "kpi-dashboard", "risk-analysis", "board-deck", "strategy", "consulting", "c-suite"],
+  "description": "Transforms complex business inputs into concise, actionable executive summaries using McKinsey SCQA, BCG Pyramid Principle, and Bain frameworks for C-suite decision-makers.",
+  "when_to_use": "When you need to generate executive summaries, leadership status reports, risk highlights, KPI dashboards, or board deck content from complex business data.",
+  "autonomy_level": "L1",
+  "params": {
+    "reporting_frequency": {
+      "type": "string",
+      "default": "Weekly",
+      "description": "How often summaries are generated (Daily, Weekly, Monthly, Quarterly)"
+    },
+    "audience_level": {
+      "type": "string",
+      "default": "C-suite executives",
+      "description": "Target audience level (C-suite, VP/Director, Board of Directors, Investors)"
+    },
+    "kpi_framework": {
+      "type": "string",
+      "default": "OKRs",
+      "description": "KPI and goal framework in use (OKRs, KPIs, Balanced Scorecard, North Star Metric)"
+    },
+    "output_format": {
+      "type": "string",
+      "default": "Markdown document",
+      "description": "Preferred output format (Markdown document, Slide deck outline, Dashboard briefing, Email)"
+    },
+    "team_context": {
+      "type": "string",
+      "default": "Cross-functional leadership team",
+      "description": "Team and organizational context for calibrating communication"
+    }
+  },
+  "files": ["SOUL.md.tmpl", "AGENTS.md.tmpl", "IDENTITY.md.tmpl", "TOOLS.md.tmpl"],
+  "skills": [],
+  "tools_required": ["Read", "Write", "Bash", "Glob", "Grep"],
+  "tools_optional": ["WebFetch", "WebSearch"],
+  "channel_suggestion": "#leadership",
+  "model_recommendation": {
+    "primary": "anthropic/claude-sonnet-4-5",
+    "rationale": "Excellent analytical synthesis and structured writing; upgrade to Opus for complex multi-source data analysis or nuanced strategic recommendations."
+  },
+  "pairs_well_with": ["support/support-responder"],
+  "adapted_from": {
+    "source": "agency-agents",
+    "original": "support/support-executive-summary-generator"
+  },
+  "onboarding": {
+    "questions": [
+      { "key": "audience_level", "ask": "目标受众是什么层级？（C-suite / VP/总监 / 董事会 / 投资人）", "required": true },
+      { "key": "kpi_framework", "ask": "使用什么目标框架？（OKRs / KPIs / 平衡计分卡 / 北极星指标）", "required": true },
+      { "key": "reporting_frequency", "ask": "摘要生成频率？（每日 / 每周 / 每月 / 每季度）", "required": false },
+      { "key": "output_format", "ask": "首选输出格式？（Markdown 文档 / 幻灯片大纲 / Dashboard 简报 / 邮件）", "required": false },
+      { "key": "team_context", "ask": "简要描述你的组织架构和汇报关系", "required": false }
+    ]
+  },
+  "tools_deny": ["Bash", "Edit"]
+}

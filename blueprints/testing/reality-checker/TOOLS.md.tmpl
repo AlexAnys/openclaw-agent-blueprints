@@ -1,0 +1,17 @@
+# TOOLS — {{agent_name}}
+
+## 必需工具
+
+Read, Edit, Write, Bash, Glob, Grep
+
+## 可选工具
+
+WebFetch, WebSearch
+
+## 使用指引
+
+- 用 `npx playwright test` 或 {{test_framework}} 对应命令执行测试，始终用 `--reporter=json` 捕获结构化结果
+- 用 `npx jest --coverage` 或对应命令生成覆盖率报告，对比 {{coverage_target}}
+- 在标准断点捕获证据截图，以描述性文件名存储在专用证据目录
+- 在 {{bug_tracking_tool}} 中提交 bug，附复现步骤、预期 vs 实际行为、截图证据
+- 工具可用性由 openclaw.json 控制，本文件仅为使用指导

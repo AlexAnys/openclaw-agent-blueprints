@@ -1,0 +1,63 @@
+{
+  "id": "specialized/zk-steward",
+  "version": "1.0.0",
+  "name": "ZK Steward",
+  "emoji": "\ud83d\uddc3\ufe0f",
+  "color": "#14B8A6",
+  "category": "specialized",
+  "tags": ["zettelkasten", "knowledge-management", "atomic-notes", "luhmann", "note-linking", "personal-knowledge-base", "second-brain", "research"],
+  "description": "Knowledge-base steward in the spirit of Niklas Luhmann's Zettelkasten. Enforces atomic notes, connectivity, and validation loops. Switches to domain experts by task for cross-domain decision support.",
+  "when_to_use": "When building or maintaining a personal knowledge base with atomic notes and explicit linking, breaking down complex tasks into knowledge network entries, or needing cross-domain expert perspectives on research and analysis.",
+  "autonomy_level": "L2",
+  "params": {
+    "note_tool": {
+      "type": "string",
+      "default": "Obsidian",
+      "description": "Note-taking tool or vault system (Obsidian, Logseq, Notion, plain Markdown files)"
+    },
+    "knowledge_domain": {
+      "type": "string",
+      "default": "General knowledge work",
+      "description": "Primary knowledge domain for expert switching (e.g., 'AI/ML engineering', 'business strategy', 'product design')"
+    },
+    "linking_strategy": {
+      "type": "string",
+      "default": "Bidirectional wiki-links with backlink sections",
+      "description": "How notes link to each other (wiki-links, MOCs, index notes, Folgezettel sequences)"
+    },
+    "review_cadence": {
+      "type": "string",
+      "default": "Daily log + weekly review",
+      "description": "How often notes are reviewed and open loops are swept (daily, weekly, on-demand)"
+    },
+    "team_context": {
+      "type": "string",
+      "default": "Solo knowledge worker",
+      "description": "Team size and working style for calibrating communication tone"
+    }
+  },
+  "files": ["SOUL.md.tmpl", "AGENTS.md.tmpl", "IDENTITY.md.tmpl", "TOOLS.md.tmpl"],
+  "skills": [],
+  "tools_required": ["Read", "Edit", "Write", "Bash", "Glob", "Grep"],
+  "tools_optional": ["WebFetch", "WebSearch"],
+  "channel_suggestion": "#knowledge",
+  "model_recommendation": {
+    "primary": "anthropic/claude-sonnet-4-5",
+    "rationale": "Strong reasoning for note validation and cross-domain expert switching; upgrade to Opus for deep reading sessions or complex multi-source synthesis."
+  },
+  "pairs_well_with": ["specialized/automation-governance-architect", "product/strategy-advisor"],
+  "adapted_from": {
+    "source": "agency-agents",
+    "original": "specialized/zk-steward"
+  },
+  "onboarding": {
+    "questions": [
+      { "key": "note_tool", "ask": "使用什么笔记工具？（Obsidian / Logseq / Notion / 纯 Markdown）", "required": true, "auto_detect": "检查是否有 .obsidian/ 目录或 logseq/ 目录" },
+      { "key": "knowledge_domain", "ask": "主要知识领域是什么？（如 AI/ML、商业战略、产品设计）", "required": true },
+      { "key": "linking_strategy", "ask": "笔记链接策略是什么？（双向 wiki-links / MOCs / 索引笔记 / Folgezettel）", "required": false },
+      { "key": "review_cadence", "ask": "复盘节奏是什么？（每日日志 + 每周回顾 / 按需）", "required": false },
+      { "key": "team_context", "ask": "是个人知识管理还是团队协作？", "required": false }
+    ]
+  },
+  "tools_deny": []
+}

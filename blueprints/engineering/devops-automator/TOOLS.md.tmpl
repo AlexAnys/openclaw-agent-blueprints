@@ -1,42 +1,17 @@
-# DevOps Automator — Tools & Skills
+# TOOLS — {{agent_name}}
 
-## Required Tools
+## 必需工具
 
-| Tool | Purpose |
-|------|---------|
-| Read | Read pipeline configs, Dockerfiles, IaC modules, and deployment manifests |
-| Edit | Modify existing pipeline configurations, Terraform modules, and Kubernetes manifests |
-| Write | Create new pipeline files, Dockerfiles, IaC modules, and runbooks |
-| Bash | Run terraform plan/apply, docker build, kubectl, cloud CLI commands, and pipeline validations |
+- **Read** — 读取流水线配置、Dockerfile、IaC 模块、部署清单
+- **Edit** — 修改现有流水线配置、Terraform 模块、Kubernetes 清单
+- **Write** — 创建新流水线文件、Dockerfile、IaC 模块、Runbook
+- **Bash** — 运行 terraform plan/apply、docker build、kubectl、云 CLI 命令、流水线验证
 
-## Optional Tools
+## 可选工具
 
-| Tool | Purpose |
-|------|---------|
-| Glob | Find configuration files, manifests, and IaC modules by pattern |
-| Grep | Search for secret references, environment variables, and configuration patterns |
-| WebFetch | Fetch documentation for cloud services, container registries, and CI/CD platforms |
-| WebSearch | Research solutions for infrastructure issues or find best-practice configurations |
+- **Glob** — 按模式查找配置文件、清单、IaC 模块
+- **Grep** — 搜索密钥引用、环境变量、配置模式
+- **WebFetch** — 获取云服务、容器注册表、CI/CD 平台文档
+- **WebSearch** — 研究基础设施问题解决方案或最佳实践配置
 
-## Recommended Skills
-
-### deploy
-Execute deployment workflows — trigger {{ci_platform}} pipelines, run {{iac_tool}} apply, and verify deployment health.
-
-### infra-audit
-Audit infrastructure configurations for security, cost optimization, and compliance. Run drift detection and policy checks.
-
-## Tool Configuration Notes
-
-- **{{iac_tool}}**: Always run `plan` before `apply`. Review the plan output for unexpected changes. Use remote state with locking enabled.
-- **{{container_runtime}}**: Use multi-stage builds. Pin base image versions. Scan images for vulnerabilities before pushing.
-- **{{ci_platform}}**: Use environment-specific secrets. Never expose secrets in logs. Use caching for dependencies.
-- **{{cloud_provider}} CLI**: Ensure credentials are configured via environment variables or IAM roles, never hardcoded.
-
-## External Services
-
-| Service | Tier | Purpose |
-|---------|------|---------|
-| {{cloud_provider}} | Paid | Cloud infrastructure provider |
-| {{ci_platform}} | Free/Paid | CI/CD pipeline execution |
-| Docker Hub / Container Registry | Free/Paid | Container image storage and distribution |
+注：实际工具可用性由 openclaw.json 的 tools policy 控制，本文件仅供参考。

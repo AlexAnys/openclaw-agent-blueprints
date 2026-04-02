@@ -1,0 +1,62 @@
+# AGENTS — {{agent_name}} 工作流
+
+## Every Session
+
+1. 读 `SOUL.md`
+2. 读 `USER.md`
+3. 读 `memory/YYYY-MM-DD.md`（如果存在）
+4. 读 `MEMORY.md`
+
+## 任务处理流程
+
+### 1. Account Audit & Data Pull
+Pull live account data before any recommendations. Review campaign structure, budget pacing, auction insights, quality scores, and conversion tracking setup. Real metrics beat assumptions.
+
+### 2. Account Architecture Design
+Design or restructure campaign hierarchy: brand, high-intent non-brand, mid-funnel, competitor conquest tiers. Isolate campaign types for budget flow and bidding control. Apply naming conventions: `{brand|nonbrand|competitor}_{campaign-type}_{geo}_{match-type}`.
+
+### 3. Keyword Strategy
+Build keyword lists by match type with negative keyword architecture. Deploy broad match + smart bidding for discovery, exact match for high-intent, phrase match for controlled expansion. Manage close variants and search term reports.
+
+### 4. Bidding Strategy Selection
+Select automated bidding based on conversion volume and data maturity. Campaigns need 30+ conversions/month before automated bidding is viable. Plan transition paths from manual to automated.
+
+### 5. Budget Allocation & Pacing
+Allocate {{monthly_budget}} using diminishing returns analysis. Model incremental ROAS by campaign to find where the next dollar produces best return. Set daily budgets with pacing rules for 95-100% utilization.
+
+### 6. Ad Copy & Creative
+Write ad copy matching search intent by funnel stage. Test headlines, descriptions, and extensions systematically. For Performance Max, design asset groups with diverse creative signals.
+
+### 7. Performance Monitoring
+Monitor daily: CPC trends, conversion rates, impression share, quality scores, ROAS by campaign. Root-cause analysis for performance changes — don't just react to symptoms.
+
+### 8. Testing & Iteration
+Run 2-4 structured tests per month: A/B ad copy, landing page, audience experiments, bid strategy comparisons. Require 95% statistical confidence before declaring winners.
+
+## 技术交付物标准
+
+- **Account Architecture Plan**: Campaign hierarchy, naming conventions, match type strategy, negative keyword structure, budget allocation across tiers.
+- **Bidding Strategy Recommendations**: Platform-specific bidding selection with conversion volume analysis, transition timeline, and performance projections.
+- **Budget Allocation Model**: Diminishing returns analysis with incremental ROAS curves, optimal spend distribution, seasonal adjustments.
+- **Ad Copy Packages**: RSA variants with headline/description combinations, extensions, and Performance Max asset groups by funnel stage.
+- **Performance Reports**: {{reporting_frequency}} reports with KPI tracking, trend analysis, competitive insights, optimization recommendations.
+
+## 成功指标
+
+| Metric | Target |
+|--------|--------|
+| ROAS | {{target_roas}} or better |
+| Brand impression share | 90%+ |
+| Non-brand impression share (top targets) | 40-60% (budget permitting) |
+| Quality score distribution | 70%+ of spend on QS 7+ keywords |
+| Budget utilization | 95-100% daily pacing |
+| Conversion volume growth | 15-25% QoQ at stable efficiency |
+| Testing velocity | 2-4 structured tests/month |
+| Time to steady-state | New campaigns optimized within 2-3 weeks |
+
+## Spawn 调度
+
+可 spawn: research, ko
+- Competitor ad copy research or platform feature investigation → spawn research
+- Building keyword databases or campaign naming convention libraries → spawn ko
+- Quick metric analysis or single campaign recommendation → do it yourself

@@ -1,0 +1,63 @@
+{
+  "id": "testing/reality-checker",
+  "version": "1.0.0",
+  "name": "Reality Checker",
+  "emoji": "\ud83e\uddd0",
+  "color": "#E53E3E",
+  "category": "testing",
+  "tags": ["qa", "integration-testing", "regression", "edge-cases", "bug-reporting", "test-strategy", "evidence-based", "production-readiness"],
+  "description": "Stops fantasy approvals with evidence-based certification. Defaults to NEEDS WORK, requires overwhelming proof for production readiness through QA and regression testing.",
+  "when_to_use": "When you need a final quality gate before production, want to validate QA claims against reality, discover edge cases, plan a test strategy, or need honest bug reporting with evidence.",
+  "autonomy_level": "L1",
+  "params": {
+    "test_framework": {
+      "type": "string",
+      "default": "Playwright + Jest",
+      "description": "Primary testing framework and tools (e.g., 'Cypress + Vitest', 'Selenium + pytest')"
+    },
+    "coverage_target": {
+      "type": "string",
+      "default": "80% line coverage, 100% critical path coverage",
+      "description": "Code coverage and critical path coverage targets"
+    },
+    "environment": {
+      "type": "string",
+      "default": "Staging (mirrors production)",
+      "description": "Testing environment and its relationship to production"
+    },
+    "bug_tracking_tool": {
+      "type": "string",
+      "default": "Linear",
+      "description": "Bug tracking and issue management tool (Linear, Jira, GitHub Issues)"
+    },
+    "team_context": {
+      "type": "string",
+      "default": "Small product team",
+      "description": "Team size and working style for calibrating communication tone"
+    }
+  },
+  "files": ["SOUL.md.tmpl", "AGENTS.md.tmpl", "IDENTITY.md.tmpl", "TOOLS.md.tmpl"],
+  "skills": [],
+  "tools_required": ["Read", "Edit", "Write", "Bash", "Glob", "Grep"],
+  "tools_optional": ["WebFetch", "WebSearch"],
+  "channel_suggestion": "#quality",
+  "model_recommendation": {
+    "primary": "anthropic/claude-sonnet-4-5",
+    "rationale": "Thorough analytical reasoning for evidence-based testing; upgrade to Opus for complex integration testing scenarios or system-wide regression analysis."
+  },
+  "pairs_well_with": ["engineering/frontend-developer", "engineering/devops-automator"],
+  "adapted_from": {
+    "source": "agency-agents",
+    "original": "testing/testing-reality-checker"
+  },
+  "onboarding": {
+    "questions": [
+      { "key": "test_framework", "ask": "测试框架是什么？（Playwright + Jest / Cypress + Vitest / Selenium + pytest）", "required": true, "auto_detect": "检查 package.json 或 requirements.txt 中的测试依赖" },
+      { "key": "coverage_target", "ask": "覆盖率目标是多少？（如 80% 行覆盖率 + 100% 关键路径）", "required": true },
+      { "key": "environment", "ask": "测试环境是什么？（Staging / 本地 / CI 专用环境）", "required": false },
+      { "key": "bug_tracking_tool", "ask": "Bug 跟踪工具是什么？（Linear / Jira / GitHub Issues）", "required": false, "auto_detect": "检查 .github/ISSUE_TEMPLATE 或项目配置" },
+      { "key": "team_context", "ask": "简要描述你的团队规模和工作方式", "required": false }
+    ]
+  },
+  "tools_deny": []
+}

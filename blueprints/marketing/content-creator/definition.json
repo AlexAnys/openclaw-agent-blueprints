@@ -54,5 +54,16 @@
   "adapted_from": {
     "source": "agency-agents",
     "original": "marketing/marketing-content-creator"
-  }
+  },
+  "onboarding": {
+    "questions": [
+      { "key": "brand_voice", "ask": "品牌调性是什么？（如「专业但亲切」「数据驱动」「幽默犀利」）", "required": true },
+      { "key": "target_audience", "ask": "目标受众是谁？（年龄段、职业、兴趣特征）", "required": true },
+      { "key": "content_platforms", "ask": "主要发布在哪些平台？（博客、LinkedIn、Twitter/X、邮件等）", "required": false },
+      { "key": "industry", "ask": "所在行业是什么？", "required": false },
+      { "key": "content_pillars", "ask": "核心内容主题有哪些？（如产品更新、行业洞察、教程）", "required": false },
+      { "key": "team_context", "ask": "简要描述你的团队规模和内容产能", "required": false }
+    ]
+  },
+  "tools_deny": ["Bash"]
 }

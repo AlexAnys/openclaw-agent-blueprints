@@ -1,36 +1,12 @@
-# OpenClaw Binding — Frontend Developer
+# OpenClaw Binding
 
-## Materialization
+For complete materialization and registration instructions, see [`ops-interface/INSTRUCTIONS.md`](../../../../ops-interface/INSTRUCTIONS.md).
 
-1. Copy the template files to your OpenClaw workspace:
-   ```bash
-   mkdir -p ~/.openclaw/workspace/agents/frontend-developer/
-   cp SOUL.md.tmpl  ~/.openclaw/workspace/agents/frontend-developer/SOUL.md
-   cp AGENTS.md.tmpl ~/.openclaw/workspace/agents/frontend-developer/AGENTS.md
-   cp TOOLS.md.tmpl  ~/.openclaw/workspace/agents/frontend-developer/TOOLS.md
-   ```
+## Quick Reference
 
-2. Resolve parameters in each file — replace all `{{variable}}` placeholders:
-   - `{{tech_stack}}` — e.g., "React, TypeScript, Tailwind CSS"
-   - `{{design_tool}}` — e.g., "Figma"
-   - `{{state_management}}` — e.g., "Zustand"
-   - `{{build_tool}}` — e.g., "Vite"
-   - `{{team_context}}` — e.g., "5-person startup, async-first"
-   - `{{target_browsers}}` — e.g., "Chrome, Firefox, Safari latest 2 versions"
+1. Copy `*.md.tmpl` from the blueprint root to your workspace (`~/.openclaw/workspace-{agentId}/`)
+2. Rename `.tmpl` → `.md` and resolve all `{{variable}}` placeholders
+3. Register in `openclaw.json` (`agents.list` + `bindings`)
+4. Restart Gateway and test
 
-3. Register in `openclaw.json`:
-   ```json
-   {
-     "agents": {
-       "list": [
-         {
-           "id": "frontend-developer",
-           "name": "Frontend Developer",
-           "description": "React/TypeScript frontend development — UI components, performance, accessibility"
-         }
-       ]
-     }
-   }
-   ```
-
-4. Verify: `openclaw chat --agent frontend-developer`
+Parameters and onboarding questions are defined in `definition.json`.

@@ -1,0 +1,57 @@
+{
+  "id": "design/ux-researcher",
+  "version": "1.0.0",
+  "name": "UX Researcher",
+  "emoji": "\ud83d\udd2c",
+  "color": "#10B981",
+  "category": "design",
+  "tags": ["user-research", "usability-testing", "personas", "user-interviews", "heuristic-evaluation", "journey-mapping", "a-b-testing", "accessibility"],
+  "description": "Validates design decisions with real user data through structured research methodologies — user interviews, usability testing, persona creation, and heuristic evaluation.",
+  "when_to_use": "When you need to validate a design hypothesis, plan a usability study, create research-backed personas, conduct heuristic evaluation, or synthesize user feedback into actionable insights.",
+  "autonomy_level": "L1",
+  "params": {
+    "research_method": {
+      "type": "string",
+      "default": "Mixed methods (qualitative + quantitative)",
+      "description": "Primary research methodology (e.g., 'Qualitative interviews', 'Unmoderated usability testing', 'Survey-based quantitative')"
+    },
+    "participant_pool": {
+      "type": "string",
+      "default": "Recruited via UserTesting.com or internal user panel",
+      "description": "How and where participants are sourced (e.g., 'Internal beta users', 'Panel recruit via Respondent.io', 'Guerrilla testing')"
+    },
+    "output_format": {
+      "type": "string",
+      "default": "Research report with executive summary, findings, and recommendations",
+      "description": "Preferred deliverable format (e.g., 'Slide deck', 'Notion doc', 'Video highlights reel + written summary')"
+    },
+    "team_context": {
+      "type": "string",
+      "default": "Cross-functional product team",
+      "description": "Team size and working style for calibrating communication tone"
+    }
+  },
+  "files": ["SOUL.md.tmpl", "AGENTS.md.tmpl", "IDENTITY.md.tmpl", "TOOLS.md.tmpl"],
+  "skills": [],
+  "tools_required": ["Read", "Write", "Bash", "Glob", "Grep"],
+  "tools_optional": ["WebFetch", "WebSearch"],
+  "channel_suggestion": "#design-research",
+  "model_recommendation": {
+    "primary": "anthropic/claude-sonnet-4-5",
+    "rationale": "Strong analytical and synthesis capabilities for research data; upgrade to Opus for complex multi-study meta-analysis."
+  },
+  "pairs_well_with": ["engineering/frontend-developer", "product/sprint-prioritizer"],
+  "adapted_from": {
+    "source": "agency-agents",
+    "original": "design/design-ux-researcher"
+  },
+  "onboarding": {
+    "questions": [
+      { "key": "research_method", "ask": "团队常用的用户研究方法是什么？（定性访谈 / 可用性测试 / 定量调研）", "required": true },
+      { "key": "output_format", "ask": "研究交付物的首选格式？（研究报告 / 幻灯片 / Notion 文档 / 视频剪辑）", "required": true },
+      { "key": "participant_pool", "ask": "参与者来源是什么？（内部用户 / 外部招募 / 用户面板）", "required": false },
+      { "key": "team_context", "ask": "简要描述你的团队规模和协作方式", "required": false }
+    ]
+  },
+  "tools_deny": []
+}

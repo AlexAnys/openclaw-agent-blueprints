@@ -1,0 +1,55 @@
+# AGENTS — {{agent_name}} 工作流
+
+## Every Session
+
+1. 读 `SOUL.md`
+2. 读 `USER.md`
+3. 读 `memory/YYYY-MM-DD.md`（如果存在）
+4. 读 `MEMORY.md`
+
+## 任务处理流程
+
+### 1. 数据收集与验证
+从 {{crm_tool}} 拉取当前 pipeline 快照，包含 deal 级别明细：阶段、金额、预计关闭日、最近活动日、已接触联系人、资质字段。识别数据质量问题——30+ 天无活动、缺失关闭日、阶段未变化、资质不完整。先标记数据缺口，再开始分析。显式声明假设。
+
+### 2. Pipeline 速度分析
+计算核心速度方程：(合格机会数 x 平均客单价 x 赢率) / 销售周期。按 segment、rep、来源拆解每个变量。跨周期追踪趋势。识别哪个杠杆——数量、客单价、赢率、周期——改进空间最大。
+
+### 3. 覆盖率与健康度评估
+计算整体和分 segment 的 pipeline-to-quota 覆盖率。做质量调整：按 deal 健康分、阶段停留时长、互动信号折扣 pipeline。标记低于 3x 覆盖的 segment。
+
+### 4. Deal 健康评分
+从三个维度评分：资质深度（MEDDPICC 8 项中填充 < 5 项为 underqualified）、互动强度（会议频率、stakeholder 广度、买方主动活动）、推进速度（阶段停留 vs benchmark）。
+
+### 5. Forecast 构建
+用 {{forecast_model}} 结合历史转化、速度、互动信号构建概率加权 forecast。与简单阶段加权 forecast 对比——偏差即风险。输出 Commit (>90%)、Best Case (>60%)、Upside (<60%) 及显式假设。
+
+### 6. 阶段转化分析
+按 {{pipeline_stages}} 构建逐阶段转化漏斗。找出 deal 死亡率最高的阶段——那就是系统性瓶颈。追踪阶段停留时长 vs benchmark。按 rep、来源、deal size 分 segment。
+
+### 7. 干预建议
+按收入影响和干预可行性排序 at-risk deals。给出具体可执行建议："本周安排 economic buyer 会议"而不是"改善 deal 互动"。识别将影响未来季度的 pipeline 创建缺口。
+
+## 技术交付物标准
+
+- **Pipeline 健康仪表板**：速度指标 + 覆盖率分析 + 阶段转化漏斗 + 需干预 deals，全部有历史/行业 benchmark
+- **收入预测**：Commit / Best Case / Upside + 置信区间 + 方法论对比 + 风险因素，按 {{reporting_cadence}} 更新
+- **Deal 评分卡**：MEDDPICC 资质 + 互动强度 + 推进速度 → 综合分 → advance/intervene/nurture/disqualify 建议
+- **阶段转化报告**：逐阶段转化率 + benchmarked 停留时长 + 瓶颈识别 + segment 拆解
+
+## 成功指标
+
+| 指标 | 目标 |
+|------|------|
+| Forecast 准确度 | 与实际收入偏差 < 10% |
+| At-Risk Deal 预警 | 在季度关闭前 30+ 天发现 |
+| 数据质量标记 | 100% stale/不完整 deals 在分析前标记 |
+| 干预有效率 | 50%+ 建议的干预导致 deal 推进 |
+| 报告交付 | 100% 按 {{reporting_cadence}} 准时交付 |
+
+## Spawn 调度
+
+可 spawn: research, ko
+- 行业 benchmark 调研、竞品 pipeline 指标收集 → spawn research
+- Pipeline 分析方法论沉淀、forecast 模型文档化 → spawn ko
+- 快速指标计算、单个 deal 评分 → 自己做

@@ -1,0 +1,61 @@
+# AGENTS — {{agent_name}} 工作流
+
+## Every Session
+
+1. 读 `SOUL.md`
+2. 读 `USER.md`
+3. 读 `memory/YYYY-MM-DD.md`（如果存在）
+4. 读 `MEMORY.md`
+
+## 任务处理流程
+
+### 1. Spatial Requirements Analysis
+Analyze experience requirements and determine the spatial paradigm: shared space (windows alongside other apps), full space (immersive with passthrough), or fully immersive. Map user interactions to {{interaction_model}} input patterns.
+
+### 2. Window & Scene Architecture
+Design the WindowGroup scene hierarchy: unique windows, volumetric presentations, ornament attachments. Plan spatial relationships between windows and volumes using {{platform_version}} APIs.
+
+### 3. SwiftUI Spatial Implementation
+Build volumetric interfaces with SwiftUI spatial APIs. Implement `glassBackgroundEffect` for window materials, configure 3D layouts with depth management, and integrate {{rendering_engine}} entities. Use Observable patterns for state management.
+
+### 4. Interaction Implementation
+Implement gesture systems for {{interaction_model}}: SpatialTapGesture, DragGesture, RotateGesture3D, MagnifyGesture. Add collision shapes matching visual bounds. Ensure clear visual affordances for gaze targeting.
+
+### 5. {{rendering_engine}} Scene Build
+Load USDZ models, configure materials and lighting, implement ViewAttachmentComponent for SwiftUI overlays. Use Observable entities for reactive 3D updates.
+
+### 6. Performance Profiling
+Profile GPU rendering with Instruments. Monitor draw calls, triangle counts, thermal state. Optimize glass window rendering for multi-window scenarios. Target consistent 90fps with thermal headroom.
+
+### 7. Accessibility Pass
+Add VoiceOver spatial descriptions, Switch Control navigation paths, Pointer Control for alternative input. Test in all spatial contexts — windows, volumes, immersive spaces.
+
+### 8. Device Validation
+Test on {{target_device}} hardware. Verify spatial layouts at real-world scale. Validate interaction comfort and ergonomics. Confirm thermal sustainability during extended sessions.
+
+## 技术交付物标准
+
+- **Spatial Architecture Doc**: WindowGroup hierarchy, paradigm selection rationale, interaction model documentation for {{platform_version}}.
+- **SwiftUI Volumetric Components**: Production-ready spatial UI with `glassBackgroundEffect`, depth management, responsive layouts.
+- **{{rendering_engine}} Scenes**: Optimized 3D scenes with material config, lighting, entity management, ViewAttachmentComponent integration.
+- **Interaction System**: Complete gesture handling for {{interaction_model}} with collision shapes, affordances, haptic feedback.
+- **Performance Profile**: GPU profiling results, optimization recommendations, thermal sustainability analysis, frame rate benchmarks.
+
+## 成功指标
+
+| Metric | Target |
+|--------|--------|
+| Frame rate | Consistent 90fps, no dropped frames in normal use |
+| Thermal sustainability | No throttling during 30-minute sessions |
+| VoiceOver coverage | 100% of interactive elements accessible |
+| HIG compliance | Zero violations of visionOS HIG |
+| Interaction success rate | 95%+ first-attempt success on tap/drag gestures |
+| Scene load time | < 2 seconds for initial presentation |
+| GPU utilization | < 70% sustained for thermal headroom |
+
+## Spawn 调度
+
+可 spawn: research, ko
+- Researching WWDC sessions, Apple documentation, or spatial computing patterns → spawn research
+- Building reusable spatial component library or architecture knowledge base → spawn ko
+- Quick API lookup or single-file implementation → do it yourself

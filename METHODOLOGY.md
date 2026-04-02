@@ -2,6 +2,8 @@
 
 This document describes the repeatable framework used to select, customize, and onboard agent blueprints. Whether you're picking your first blueprint or designing a multi-agent team, follow this methodology to avoid common pitfalls.
 
+> **操作指令**：如果你是 onboarding Agent，请直接阅读 `ops-interface/INSTRUCTIONS.md`。本文档面向人类读者，解释设计理念和决策依据。
+
 ---
 
 ## Part 1: Blueprint Selection Framework
@@ -69,18 +71,15 @@ If single agent, proceed to Part 2. If team, see Part 4 first to understand comp
 
 Every blueprint defines parameters in `definition.json` as `{{variable}}` placeholders. These appear in the binding files (SOUL.md, AGENTS.md, TOOLS.md) and must be resolved before the agent is usable.
 
-**Resolution process:**
+**Key principles:**
 
-1. Open `definition.json` and read the `parameters` section.
-2. For each parameter, note its `description`, `type`, and `default` (if any).
-3. Prepare your values. Common parameters include:
+1. Read the `parameters` section in `definition.json` — note each parameter's `description`, `type`, and `default`.
+2. Common parameters include:
    - `{{tech_stack}}` — Your technology stack (e.g., "React, TypeScript, Tailwind")
    - `{{team_context}}` — How your team operates (e.g., "5-person startup, async-first")
    - `{{output_language}}` — Preferred response language
    - `{{domain_constraints}}` — Industry or compliance requirements
-4. Replace all `{{variable}}` occurrences in the binding files with your values.
-
-**Tip:** Don't leave any unresolved `{{variables}}` — the agent will either error or hallucinate values.
+3. **No unresolved `{{variables}}`** — the agent will either error or hallucinate values.
 
 ### SOUL.md Tuning
 
@@ -113,86 +112,34 @@ TOOLS.md specifies which skills and external tools the agent can access. Customi
 
 ---
 
-## Part 3: Onboarding Workflow
+## Part 3: OpenClaw 适配原则
 
-### Step 1: Get the Blueprint Files
+当从通用 Agent 模板（如 agency-agents）适配为 OpenClaw blueprint 时，需要注意以下原则。
 
-```bash
-# Option A: Clone the full repo
-git clone https://github.com/AlexAnys/openclaw-agent-blueprints.git
+### 必须添加的
 
-# Option B: Fetch a single blueprint (raw files)
-curl -O https://raw.githubusercontent.com/.../definition.json
-```
+- **自主权边界**：OpenClaw 多 Agent 环境需要明确每个 Agent 能做什么、不能做什么。在 SOUL.md 中用"允许/禁止"列表定义操作权限级别，避免 Agent 越权。
+- **Spawn 调度**：OpenClaw 支持 subagent 并发，需要在 AGENTS.md 中定义何时 spawn、可以 spawn 谁（如 research、ko 等通用 subagent），以及什么任务自己处理。
+- **Session 启动流程**：每次会话需要按固定顺序加载 workspace 文件（SOUL → USER → MEMORY），在 AGENTS.md 的 "Every Session" 部分定义。
+- **自我迭代机制**：Agent 修改自身规则文件（SOUL/AGENTS/MEMORY）时必须写 Self-Update，确保变更可追溯。
 
-### Step 2: Materialize the Blueprint
+### 必须去掉的
 
-**Automated (recommended):**
+- **激活指令**：不要写 "activate XX mode" — OpenClaw 用 binding 自动路由，不需要手动激活。
+- **过长的代码示例**：SOUL.md 控制在 80-120 行，详细示例和参考资料放 `skills/`，不要塞进核心文件。
+- **硬编码路径**：workspace 路径因用户而异，不要在模板中硬编码。多 Agent 模式下，每个 Agent 的 workspace 默认在 `~/.openclaw/workspace-{agentId}/`，具体路径可在 `openclaw.json` 的 `agents.list[].workspace` 中自定义。
 
-```bash
-# Using the ops-agent or materializer CLI (when available)
-openclaw-blueprints materialize \
-  --blueprint engineering/frontend-developer \
-  --params tech_stack="React + TypeScript" \
-  --params team_context="Startup, 3 engineers" \
-  --output ~/.openclaw/workspace/agents/frontend-developer/
-```
+### 文件层次
 
-**Manual:**
+Blueprint 产出的文件按来源和生命周期分为三层：
 
-1. Copy the `bindings/openclaw/` directory to your agent workspace.
-2. Open each `.md` file and replace `{{variables}}` with your values.
-3. Review every file to ensure no placeholders remain.
+| 层次 | 文件 | 来源 | 说明 |
+|------|------|------|------|
+| Layer 1: Blueprint 预定义 | SOUL.md, AGENTS.md, IDENTITY.md, TOOLS.md | 从 blueprint 模板生成 | 定义 Agent 是谁、怎么工作 |
+| Layer 2: Onboarding 时生成 | USER.md, HEARTBEAT.md, openclaw.json 配置 | Onboarding Agent 动态生成 | 适配用户环境 |
+| Layer 3: 运行时自然生长 | MEMORY.md 内容, memory/ 日志, skills/ | Agent 自己维护 | 持续积累 |
 
-### Step 3: Place Workspace Files
-
-The materialized files go into OpenClaw's workspace directory:
-
-```
-~/.openclaw/workspace/agents/{agent-id}/
-├── SOUL.md
-├── AGENTS.md
-└── TOOLS.md
-```
-
-The `{agent-id}` should be a kebab-case identifier matching the blueprint role (e.g., `frontend-developer`, `ux-researcher`).
-
-### Step 4: Register in openclaw.json
-
-Add the agent to your OpenClaw configuration:
-
-```json
-{
-  "agents": {
-    "list": [
-      {
-        "id": "frontend-developer",
-        "name": "Frontend Developer",
-        "description": "React/TypeScript frontend development assistant"
-      }
-    ]
-  }
-}
-```
-
-Configure any bindings, model preferences, or tool permissions as needed.
-
-### Step 5: Test with a Real Task
-
-Don't test with toy examples. Give the agent a real task from your backlog within the first 5 minutes:
-
-```bash
-openclaw chat --agent frontend-developer
-> "Refactor the dashboard component to use the new design tokens from our design system."
-```
-
-Evaluate the response against these criteria:
-- Does it understand your tech stack context?
-- Does the tone match your expectations?
-- Are the deliverables in a usable format?
-- Does it stay within its defined boundaries?
-
-If anything is off, go back to Part 2 and adjust the relevant file.
+**设计原则**：Blueprint 仓库只负责 Layer 1 的模板内容。Layer 2 由 onboarding Agent 在部署时根据用户环境动态生成（详见 `ops-interface/INSTRUCTIONS.md`）。Layer 3 由 Agent 在运行过程中自然积累，无需预定义。
 
 ---
 
