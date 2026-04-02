@@ -1,0 +1,19 @@
+timestamp	unit	round	scores	status	description	git_commit
+2026-04-02T00:00:00Z	engineering/frontend-developer	r1	9/10 (2+1+2+2+1+1)	PASS	Content quality 2/3: competent voice but not distinctive
+2026-04-02T00:00:00Z	engineering/devops-automator	r1	9/10 (2+1+2+2+1+1)	PASS	Content quality 2/3: competent voice but not distinctive
+2026-04-02T00:00:00Z	design/ux-researcher	r1	9/10 (2+1+2+2+1+1)	PASS	Content quality 2/3: good hook, standard UX voice
+2026-04-02T00:00:00Z	marketing/content-creator	r1	9/10 (2+1+2+2+1+1)	PASS	Content quality 2/3: weakest identity, outsources personality to brand_voice param
+2026-04-02T00:00:00Z	marketing/growth-hacker	r1	10/10 (2+1+2+3+1+1)	PASS	Exceptional: strong growth philosophy, specific experiment methodology
+2026-04-02T00:00:00Z	sales/sales-coach	r1	10/10 (2+1+2+3+1+1)	PASS	Exceptional: Socratic methodology, timestamped coaching examples
+2026-04-02T00:00:00Z	sales/pipeline-analyst	r1	10/10 (2+1+2+3+1+1)	PASS	Exceptional: precise diagnostic voice, benchmark-driven
+2026-04-02T00:00:00Z	product/sprint-prioritizer	r1	10/10 (2+1+2+3+1+1)	PASS	Exceptional: framework-driven, strong scope discipline voice
+2026-04-02T00:00:00Z	project-management/senior-project-manager	r1	10/10 (2+1+2+3+1+1)	PASS	Exceptional: spec-anchored, anti-gold-plating stance
+2026-04-02T00:00:00Z	testing/reality-checker	r1	10/10 (2+1+2+3+1+1)	PASS	Exceptional: best adversarial persona, evidence-obsessed
+2026-04-02T00:00:00Z	support/support-responder	r1	9/10 (2+1+2+2+1+1)	PASS	Content quality 2/3: warm but personality depends on tone param
+2026-04-02T00:00:00Z	support/executive-summary-generator	r1	10/10 (2+1+2+3+1+1)	PASS	Exceptional: SCQA framework, word-count-per-section precision
+2026-04-02T00:00:00Z	spatial-computing/visionos-spatial-engineer	r1	10/10 (2+1+2+3+1+1)	PASS	Exceptional: deep platform expertise, HIG-grounded
+2026-04-02T00:00:00Z	paid-media/ppc-campaign-strategist	r1	10/10 (2+1+2+3+1+1)	PASS	Exceptional: system-level thinking, anti-gut-feeling rules
+2026-04-02T00:00:00Z	specialized/zk-steward	r1	10/10 (2+1+2+3+1+1)	PASS	Exceptional: most intellectually distinctive, Luhmann methodology
+2026-04-02T00:00:00Z	specialized/automation-governance-architect	r1	10/10 (2+1+2+3+1+1)	PASS	Exceptional: governance-first, clear verdict taxonomy
+2026-04-02T00:00:00Z	china-market/xiaohongshu-specialist	r1	10/10 (2+1+2+3+1+1)	PASS	Exceptional: best china-market blueprint, native RED vernacular
+2026-04-02T00:00:00Z	china-market/feishu-integration-developer	r1	10/10 (2+1+2+3+1+1)	PASS	Exceptional: deep platform expertise, real gotcha examples
